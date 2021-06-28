@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoDelCursoModelStoreContainer" CdmEntityContainer="ProyectoDelCursoEntities">
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+          <ScalarProperty Name="DescripcionCity" ColumnName="DescripcionCity" />
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+          <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
+          <ScalarProperty Name="IdentificationNumberClient" ColumnName="IdentificationNumberClient" />
+          <ScalarProperty Name="GenderClient" ColumnName="GenderClient" />
+          <ScalarProperty Name="PhoneClient" ColumnName="PhoneClient" />
+          <ScalarProperty Name="VehicleClient" ColumnName="VehicleClient" />
+          <ScalarProperty Name="ProfilePictureClient" ColumnName="ProfilePictureClient" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+          <ScalarProperty Name="DescriptionCountry" ColumnName="DescriptionCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departament">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Departament">
+        <MappingFragment StoreEntitySet="Departament">
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+          <ScalarProperty Name="NameDepartament" ColumnName="NameDepartament" />
+          <ScalarProperty Name="DescriptionDepartament" ColumnName="DescriptionDepartament" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mechanic">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Mechanic">
+        <MappingFragment StoreEntitySet="Mechanic">
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+          <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+          <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+          <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+          <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+          <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+          <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+          <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+          <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+          <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+          <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+          <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="CreatedDateService" ColumnName="CreatedDateService" />
+          <ScalarProperty Name="DeletCodeService" ColumnName="DeletCodeService" />
+          <ScalarProperty Name="MechanicCommentService" ColumnName="MechanicCommentService" />
+          <ScalarProperty Name="ClientCommentService" ColumnName="ClientCommentService" />
+          <ScalarProperty Name="MechanicCalificationService" ColumnName="MechanicCalificationService" />
+          <ScalarProperty Name="ClientCalificationService" ColumnName="ClientCalificationService" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceList">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.ServiceList">
+        <MappingFragment StoreEntitySet="ServiceList">
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+          <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceType">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.ServiceType">
+        <MappingFragment StoreEntitySet="ServiceType">
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+          <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+          <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusService">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.StatusService">
+        <MappingFragment StoreEntitySet="StatusService">
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+          <ScalarProperty Name="NameStatusService" ColumnName="NameStatusService" />
+          <ScalarProperty Name="DescriptionStatusService" ColumnName="DescriptionStatusService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheService">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.TheService">
+        <MappingFragment StoreEntitySet="TheService">
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+          <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+          <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+          <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeDocument">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.TypeDocument">
+        <MappingFragment StoreEntitySet="TypeDocument">
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="deleteCity" FunctionName="ProyectoDelCursoModel.Store.deleteCity" />
+    <FunctionImportMapping FunctionImportName="deleteClient" FunctionName="ProyectoDelCursoModel.Store.deleteClient" />
+    <FunctionImportMapping FunctionImportName="deleteCountry" FunctionName="ProyectoDelCursoModel.Store.deleteCountry" />
+    <FunctionImportMapping FunctionImportName="deleteDepartament" FunctionName="ProyectoDelCursoModel.Store.deleteDepartament" />
+    <FunctionImportMapping FunctionImportName="deleteMechanic" FunctionName="ProyectoDelCursoModel.Store.deleteMechanic" />
+    <FunctionImportMapping FunctionImportName="deletePayment" FunctionName="ProyectoDelCursoModel.Store.deletePayment" />
+    <FunctionImportMapping FunctionImportName="deleteServiceList" FunctionName="ProyectoDelCursoModel.Store.deleteServiceList" />
+    <FunctionImportMapping FunctionImportName="deleteServiceType" FunctionName="ProyectoDelCursoModel.Store.deleteServiceType" />
+    <FunctionImportMapping FunctionImportName="deleteStatusServiceId" FunctionName="ProyectoDelCursoModel.Store.deleteStatusServiceId" />
+    <FunctionImportMapping FunctionImportName="deleteTypeDocument" FunctionName="ProyectoDelCursoModel.Store.deleteTypeDocument" />
+    <FunctionImportMapping FunctionImportName="insertCity" FunctionName="ProyectoDelCursoModel.Store.insertCity" />
+    <FunctionImportMapping FunctionImportName="insertClient" FunctionName="ProyectoDelCursoModel.Store.insertClient" />
+    <FunctionImportMapping FunctionImportName="insertCountry" FunctionName="ProyectoDelCursoModel.Store.insertCountry" />
+    <FunctionImportMapping FunctionImportName="insertDepartament" FunctionName="ProyectoDelCursoModel.Store.insertDepartament" />
+    <FunctionImportMapping FunctionImportName="insertPayment" FunctionName="ProyectoDelCursoModel.Store.insertPayment" />
+    <FunctionImportMapping FunctionImportName="insertServiceList" FunctionName="ProyectoDelCursoModel.Store.insertServiceList" />
+    <FunctionImportMapping FunctionImportName="insertServiceType" FunctionName="ProyectoDelCursoModel.Store.insertServiceType" />
+    <FunctionImportMapping FunctionImportName="insertTheService" FunctionName="ProyectoDelCursoModel.Store.insertTheService" />
+    <FunctionImportMapping FunctionImportName="insertTypeDocument" FunctionName="ProyectoDelCursoModel.Store.insertTypeDocument" />
+    <FunctionImportMapping FunctionImportName="selectCity" FunctionName="ProyectoDelCursoModel.Store.selectCity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectCity_Result">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+          <ScalarProperty Name="DescripcionCity" ColumnName="DescripcionCity" />
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectClient" FunctionName="ProyectoDelCursoModel.Store.selectClient">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectClient_Result">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+          <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
+          <ScalarProperty Name="IdentificationNumberClient" ColumnName="IdentificationNumberClient" />
+          <ScalarProperty Name="GenderClient" ColumnName="GenderClient" />
+          <ScalarProperty Name="PhoneClient" ColumnName="PhoneClient" />
+          <ScalarProperty Name="VehicleClient" ColumnName="VehicleClient" />
+          <ScalarProperty Name="ProfilePictureClient" ColumnName="ProfilePictureClient" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectCountry" FunctionName="ProyectoDelCursoModel.Store.selectCountry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectCountry_Result">
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+          <ScalarProperty Name="DescriptionCountry" ColumnName="DescriptionCountry" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectDepartament" FunctionName="ProyectoDelCursoModel.Store.selectDepartament" />
+    <FunctionImportMapping FunctionImportName="selectDepartamentId" FunctionName="ProyectoDelCursoModel.Store.selectDepartamentId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectDepartamentId_Result">
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+          <ScalarProperty Name="NameDepartament" ColumnName="NameDepartament" />
+          <ScalarProperty Name="DescriptionDepartament" ColumnName="DescriptionDepartament" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectMechanic" FunctionName="ProyectoDelCursoModel.Store.selectMechanic">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectMechanic_Result">
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+          <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+          <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+          <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+          <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+          <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+          <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+          <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+          <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectMechanicId" FunctionName="ProyectoDelCursoModel.Store.selectMechanicId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectMechanicId_Result">
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+          <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+          <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+          <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+          <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+          <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+          <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+          <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+          <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectPayment" FunctionName="ProyectoDelCursoModel.Store.selectPayment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectPayment_Result">
+          <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+          <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+          <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+          <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectPaymentId" FunctionName="ProyectoDelCursoModel.Store.selectPaymentId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectPaymentId_Result">
+          <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+          <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+          <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+          <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectService" FunctionName="ProyectoDelCursoModel.Store.selectService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectService_Result">
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="CreatedDateService" ColumnName="CreatedDateService" />
+          <ScalarProperty Name="DeletCodeService" ColumnName="DeletCodeService" />
+          <ScalarProperty Name="MechanicCommentService" ColumnName="MechanicCommentService" />
+          <ScalarProperty Name="ClientCommentService" ColumnName="ClientCommentService" />
+          <ScalarProperty Name="MechanicCalificationService" ColumnName="MechanicCalificationService" />
+          <ScalarProperty Name="ClientCalificationService" ColumnName="ClientCalificationService" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectServiceList" FunctionName="ProyectoDelCursoModel.Store.selectServiceList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceList_Result">
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+          <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectServiceListId" FunctionName="ProyectoDelCursoModel.Store.selectServiceListId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceListId_Result">
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+          <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectServiceType" FunctionName="ProyectoDelCursoModel.Store.selectServiceType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceType_Result">
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+          <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+          <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectServiceTypeId" FunctionName="ProyectoDelCursoModel.Store.selectServiceTypeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceTypeId_Result">
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+          <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+          <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectStatusService" FunctionName="ProyectoDelCursoModel.Store.selectStatusService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectStatusService_Result">
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+          <ScalarProperty Name="NameStatusService" ColumnName="NameStatusService" />
+          <ScalarProperty Name="DescriptionStatusService" ColumnName="DescriptionStatusService" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTheService" FunctionName="ProyectoDelCursoModel.Store.selectTheService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTheService_Result">
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+          <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+          <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+          <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTheServiceId" FunctionName="ProyectoDelCursoModel.Store.selectTheServiceId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTheServiceId_Result">
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+          <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+          <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+          <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTypeDocument" FunctionName="ProyectoDelCursoModel.Store.selectTypeDocument">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTypeDocument_Result">
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTypeDocumentId" FunctionName="ProyectoDelCursoModel.Store.selectTypeDocumentId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTypeDocumentId_Result">
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateCity" FunctionName="ProyectoDelCursoModel.Store.updateCity" />
+    <FunctionImportMapping FunctionImportName="updateClient" FunctionName="ProyectoDelCursoModel.Store.updateClient" />
+    <FunctionImportMapping FunctionImportName="updateCountry" FunctionName="ProyectoDelCursoModel.Store.updateCountry" />
+    <FunctionImportMapping FunctionImportName="updateDepartament" FunctionName="ProyectoDelCursoModel.Store.updateDepartament" />
+    <FunctionImportMapping FunctionImportName="updateMechanic" FunctionName="ProyectoDelCursoModel.Store.updateMechanic" />
+    <FunctionImportMapping FunctionImportName="updatePayment" FunctionName="ProyectoDelCursoModel.Store.updatePayment" />
+    <FunctionImportMapping FunctionImportName="updateServiceList" FunctionName="ProyectoDelCursoModel.Store.updateServiceList" />
+    <FunctionImportMapping FunctionImportName="updateServiceType" FunctionName="ProyectoDelCursoModel.Store.updateServiceType" />
+    <FunctionImportMapping FunctionImportName="updateStatusService" FunctionName="ProyectoDelCursoModel.Store.updateStatusService" />
+    <FunctionImportMapping FunctionImportName="updateTheService" FunctionName="ProyectoDelCursoModel.Store.updateTheService" />
+    <FunctionImportMapping FunctionImportName="updateTypeDocument" FunctionName="ProyectoDelCursoModel.Store.updateTypeDocument" />
+  </EntityContainerMapping>
+</Mapping>

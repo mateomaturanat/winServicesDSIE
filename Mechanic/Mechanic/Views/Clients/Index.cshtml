@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Mechanic.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurnameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdentificationNumberClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfilePictureClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City.NameCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeDocument.NameDocument)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurnameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdentificationNumberClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfilePictureClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.NameCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeDocument.NameDocument)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdClient }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdClient }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdClient })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Mechanic.Models.Service>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDateService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletCodeService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MechanicCommentService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientCommentService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MechanicCalificationService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientCalificationService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.NameClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceList.CodeServiceList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusService.NameStatusService)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDateService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletCodeService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MechanicCommentService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientCommentService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MechanicCalificationService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientCalificationService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.NameClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceList.CodeServiceList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusService.NameStatusService)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdService }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdService }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdService })
+        </td>
+    </tr>
+}
+
+</table>

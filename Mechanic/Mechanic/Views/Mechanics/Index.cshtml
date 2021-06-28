@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Mechanic.Models.Mechanic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurnameMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentNumberMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfilePictureMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LatitudeMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LongitudeMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City.NameCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeDocument.NameDocument)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurnameMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentNumberMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfilePictureMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LatitudeMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LongitudeMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.NameCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeDocument.NameDocument)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdMechanic }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdMechanic }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdMechanic })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoDelCursoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="IdCity" />
+    </Key>
+    <Property Name="IdCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCity" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="DescripcionCity" Type="nvarchar(max)" />
+    <Property Name="IdDepartament" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameClient" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SurnameClient" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdentificationNumberClient" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="GenderClient" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PhoneClient" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VehicleClient" Type="varchar" MaxLength="50" />
+    <Property Name="ProfilePictureClient" Type="image" />
+    <Property Name="Latitude" Type="geography" />
+    <Property Name="Longitude" Type="geography" />
+    <Property Name="IdCity" Type="int" Nullable="false" />
+    <Property Name="IdTypeDocument" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="IdCountry" />
+    </Key>
+    <Property Name="IdCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCountry" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="DescriptionCountry" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Departament">
+    <Key>
+      <PropertyRef Name="IdDepartament" />
+    </Key>
+    <Property Name="IdDepartament" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDepartament" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="DescriptionDepartament" Type="nvarchar(max)" />
+    <Property Name="IdCountry" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mechanic">
+    <Key>
+      <PropertyRef Name="IdMechanic" />
+    </Key>
+    <Property Name="IdMechanic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameMechanic" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SurnameMechanic" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="DocumentNumberMechanic" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="GenderMechanic" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PhoneMechanic" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EmailMechanic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfilePictureMechanic" Type="image" />
+    <Property Name="LatitudeMechanic" Type="text" />
+    <Property Name="LongitudeMechanic" Type="text" />
+    <Property Name="IdCity" Type="int" Nullable="false" />
+    <Property Name="IdTypeDocument" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="IdPayment" />
+    </Key>
+    <Property Name="IdPayment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConfirmationCodePayment" Type="varchar(max)" Nullable="false" />
+    <Property Name="DescriptionPayment" Type="varchar(max)" Nullable="false" />
+    <Property Name="ResponsePayment" Type="nvarchar(max)" />
+    <Property Name="IdService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IdService" />
+    </Key>
+    <Property Name="IdService" Type="int" Nullable="false" />
+    <Property Name="CreatedDateService" Type="date" />
+    <Property Name="DeletCodeService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MechanicCommentService" Type="varchar(max)" />
+    <Property Name="ClientCommentService" Type="varchar(max)" />
+    <Property Name="MechanicCalificationService" Type="int" />
+    <Property Name="ClientCalificationService" Type="int" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="IdServiceList" Type="int" Nullable="false" />
+    <Property Name="IdStatusService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceList">
+    <Key>
+      <PropertyRef Name="IdServiceList" />
+    </Key>
+    <Property Name="IdServiceList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeServiceList" Type="varchar(max)" Nullable="false" />
+    <Property Name="StatusServiceList" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdMechanic" Type="int" Nullable="false" />
+    <Property Name="IdTheService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="IdServiceType" />
+    </Key>
+    <Property Name="IdServiceType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameServiceType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescriptionServiceType" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="StatusService">
+    <Key>
+      <PropertyRef Name="IdStatusService" />
+    </Key>
+    <Property Name="IdStatusService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameStatusService" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescriptionStatusService" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TheService">
+    <Key>
+      <PropertyRef Name="IdTheService" />
+    </Key>
+    <Property Name="IdTheService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTheService" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescriptionTheService" Type="varchar(max)" Nullable="false" />
+    <Property Name="PreviewImageTheService" Type="image" />
+    <Property Name="IdServiceType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeDocument">
+    <Key>
+      <PropertyRef Name="IdTypeDocument" />
+    </Key>
+    <Property Name="IdTypeDocument" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDocument" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescriptionDocument" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_City_Departament">
+    <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departament">
+        <PropertyRef Name="IdDepartament" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="IdDepartament" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_TypeDocument">
+    <End Role="TypeDocument" Type="Self.TypeDocument" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeDocument">
+        <PropertyRef Name="IdTypeDocument" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IdTypeDocument" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departament_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Departament" Type="Self.Departament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="IdCountry" />
+      </Principal>
+      <Dependent Role="Departament">
+        <PropertyRef Name="IdCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mechanic_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Mechanic">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mechanic_TypeDocument">
+    <End Role="TypeDocument" Type="Self.TypeDocument" Multiplicity="1" />
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeDocument">
+        <PropertyRef Name="IdTypeDocument" />
+      </Principal>
+      <Dependent Role="Mechanic">
+        <PropertyRef Name="IdTypeDocument" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IdService" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_ServiceList">
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceList">
+        <PropertyRef Name="IdServiceList" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdServiceList" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_StatusService">
+    <End Role="StatusService" Type="Self.StatusService" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusService">
+        <PropertyRef Name="IdStatusService" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdStatusService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceList_Mechanic">
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="1" />
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mechanic">
+        <PropertyRef Name="IdMechanic" />
+      </Principal>
+      <Dependent Role="ServiceList">
+        <PropertyRef Name="IdMechanic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceList_TheService">
+    <End Role="TheService" Type="Self.TheService" Multiplicity="1" />
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TheService">
+        <PropertyRef Name="IdTheService" />
+      </Principal>
+      <Dependent Role="ServiceList">
+        <PropertyRef Name="IdTheService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TheService_ServiceType">
+    <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="1" />
+    <End Role="TheService" Type="Self.TheService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceType">
+        <PropertyRef Name="IdServiceType" />
+      </Principal>
+      <Dependent Role="TheService">
+        <PropertyRef Name="IdServiceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoDelCursoModelStoreContainer">
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departament" EntityType="Self.Departament" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mechanic" EntityType="Self.Mechanic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceList" EntityType="Self.ServiceList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceType" EntityType="Self.ServiceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusService" EntityType="Self.StatusService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TheService" EntityType="Self.TheService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeDocument" EntityType="Self.TypeDocument" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_City_Departament" Association="Self.FK_City_Departament">
+      <End Role="Departament" EntitySet="Departament" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_City" Association="Self.FK_Client_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_TypeDocument" Association="Self.FK_Client_TypeDocument">
+      <End Role="TypeDocument" EntitySet="TypeDocument" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departament_Country" Association="Self.FK_Departament_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Departament" EntitySet="Departament" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mechanic_City" Association="Self.FK_Mechanic_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Mechanic" EntitySet="Mechanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mechanic_TypeDocument" Association="Self.FK_Mechanic_TypeDocument">
+      <End Role="TypeDocument" EntitySet="TypeDocument" />
+      <End Role="Mechanic" EntitySet="Mechanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Service" Association="Self.FK_Payment_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_Client" Association="Self.FK_Service_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_ServiceList" Association="Self.FK_Service_ServiceList">
+      <End Role="ServiceList" EntitySet="ServiceList" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_StatusService" Association="Self.FK_Service_StatusService">
+      <End Role="StatusService" EntitySet="StatusService" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceList_Mechanic" Association="Self.FK_ServiceList_Mechanic">
+      <End Role="Mechanic" EntitySet="Mechanic" />
+      <End Role="ServiceList" EntitySet="ServiceList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceList_TheService" Association="Self.FK_ServiceList_TheService">
+      <End Role="TheService" EntitySet="TheService" />
+      <End Role="ServiceList" EntitySet="ServiceList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TheService_ServiceType" Association="Self.FK_TheService_ServiceType">
+      <End Role="ServiceType" EntitySet="ServiceType" />
+      <End Role="TheService" EntitySet="TheService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

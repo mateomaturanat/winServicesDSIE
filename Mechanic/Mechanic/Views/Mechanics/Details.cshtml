@@ -1,0 +1,106 @@
+﻿@model Mechanic.Models.Mechanic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mechanic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurnameMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurnameMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentNumberMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentNumberMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfilePictureMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfilePictureMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LatitudeMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LatitudeMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LongitudeMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LongitudeMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.NameCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.NameCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeDocument.NameDocument)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeDocument.NameDocument)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMechanic }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

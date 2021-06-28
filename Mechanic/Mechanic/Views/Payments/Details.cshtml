@@ -1,0 +1,50 @@
+﻿@model Mechanic.Models.Payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmationCodePayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmationCodePayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionPayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsePayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsePayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.MechanicCommentService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.MechanicCommentService)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPayment }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

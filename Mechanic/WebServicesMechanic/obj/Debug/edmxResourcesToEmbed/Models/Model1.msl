@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoDelCursoModelStoreContainer" CdmEntityContainer="ProyectoDelCursoEntities4">
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+          <ScalarProperty Name="DescripcionCity" ColumnName="DescripcionCity" />
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+          <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
+          <ScalarProperty Name="IdentificationNumberClient" ColumnName="IdentificationNumberClient" />
+          <ScalarProperty Name="GenderClient" ColumnName="GenderClient" />
+          <ScalarProperty Name="PhoneClient" ColumnName="PhoneClient" />
+          <ScalarProperty Name="VehicleClient" ColumnName="VehicleClient" />
+          <ScalarProperty Name="ProfilePictureClient" ColumnName="ProfilePictureClient" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+          <ScalarProperty Name="DescriptionCountry" ColumnName="DescriptionCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departament">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Departament">
+        <MappingFragment StoreEntitySet="Departament">
+          <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+          <ScalarProperty Name="NameDepartament" ColumnName="NameDepartament" />
+          <ScalarProperty Name="DescriptionDepartament" ColumnName="DescriptionDepartament" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mechanic">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Mechanic">
+        <MappingFragment StoreEntitySet="Mechanic">
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+          <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+          <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+          <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+          <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+          <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+          <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+          <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+          <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+          <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+          <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+          <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="CreatedDateService" ColumnName="CreatedDateService" />
+          <ScalarProperty Name="DeletCodeService" ColumnName="DeletCodeService" />
+          <ScalarProperty Name="MechanicCommentService" ColumnName="MechanicCommentService" />
+          <ScalarProperty Name="ClientCommentService" ColumnName="ClientCommentService" />
+          <ScalarProperty Name="MechanicCalificationService" ColumnName="MechanicCalificationService" />
+          <ScalarProperty Name="ClientCalificationService" ColumnName="ClientCalificationService" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceList">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.ServiceList">
+        <MappingFragment StoreEntitySet="ServiceList">
+          <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+          <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+          <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+          <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceType">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.ServiceType">
+        <MappingFragment StoreEntitySet="ServiceType">
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+          <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+          <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusService">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.StatusService">
+        <MappingFragment StoreEntitySet="StatusService">
+          <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+          <ScalarProperty Name="NameStatusService" ColumnName="NameStatusService" />
+          <ScalarProperty Name="DescriptionStatusService" ColumnName="DescriptionStatusService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheService">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.TheService">
+        <MappingFragment StoreEntitySet="TheService">
+          <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+          <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+          <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+          <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+          <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeDocument">
+      <EntityTypeMapping TypeName="ProyectoDelCursoModel.TypeDocument">
+        <MappingFragment StoreEntitySet="TypeDocument">
+          <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

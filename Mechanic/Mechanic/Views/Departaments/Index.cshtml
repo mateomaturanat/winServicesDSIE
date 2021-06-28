@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Mechanic.Models.Departament>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDepartament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionDepartament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.NameCountry)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameDepartament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescriptionDepartament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.NameCountry)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDepartament }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDepartament }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDepartament })
+        </td>
+    </tr>
+}
+
+</table>

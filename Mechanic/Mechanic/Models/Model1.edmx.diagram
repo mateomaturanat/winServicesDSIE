@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c599bc36bf4f4349bc910b7ca0d0bd1b" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.City" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Client" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Country" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Departament" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Mechanic" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Payment" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.Service" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.ServiceList" Width="1.5" PointX="11.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.ServiceType" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.StatusService" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.TheService" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDelCursoModel.TypeDocument" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_City_Departament" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Client_City" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Mechanic_City" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Client_TypeDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Service_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Departament_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Mechanic_TypeDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_ServiceList_Mechanic" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Payment_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Service_ServiceList" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_Service_StatusService" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_ServiceList_TheService" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDelCursoModel.FK_TheService_ServiceType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

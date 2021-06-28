@@ -1,0 +1,50 @@
+﻿@model Mechanic.Models.ServiceList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeServiceList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeServiceList)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusServiceList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusServiceList)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mechanic.NameMechanic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mechanic.NameMechanic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheService.NameTheService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheService.NameTheService)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdServiceList }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Mechanic.Models.ServiceList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeServiceList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusServiceList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mechanic.NameMechanic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TheService.NameTheService)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodeServiceList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusServiceList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mechanic.NameMechanic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheService.NameTheService)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdServiceList }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdServiceList }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdServiceList })
+        </td>
+    </tr>
+}
+
+</table>

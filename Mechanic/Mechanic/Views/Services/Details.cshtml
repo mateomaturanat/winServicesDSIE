@@ -1,0 +1,90 @@
+﻿@model Mechanic.Models.Service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDateService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDateService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletCodeService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletCodeService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MechanicCommentService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MechanicCommentService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientCommentService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientCommentService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MechanicCalificationService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MechanicCalificationService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientCalificationService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientCalificationService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.NameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.NameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceList.CodeServiceList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceList.CodeServiceList)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusService.NameStatusService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusService.NameStatusService)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdService }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

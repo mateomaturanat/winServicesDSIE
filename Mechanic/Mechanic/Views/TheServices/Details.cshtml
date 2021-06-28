@@ -1,0 +1,50 @@
+﻿@model Mechanic.Models.TheService
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TheService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameTheService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameTheService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionTheService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionTheService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreviewImageTheService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreviewImageTheService)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceType.NameServiceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceType.NameServiceType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTheService }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

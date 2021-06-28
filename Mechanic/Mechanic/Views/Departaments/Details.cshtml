@@ -1,0 +1,42 @@
+﻿@model Mechanic.Models.Departament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Departament</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameDepartament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameDepartament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionDepartament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionDepartament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.NameCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.NameCountry)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdDepartament }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

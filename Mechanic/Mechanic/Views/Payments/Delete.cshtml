@@ -1,0 +1,56 @@
+﻿@model Mechanic.Models.Payment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmationCodePayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmationCodePayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionPayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsePayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsePayment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.MechanicCommentService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.MechanicCommentService)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

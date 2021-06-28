@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoDelCursoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="IdCity" />
+    </Key>
+    <Property Name="IdCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCity" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DescripcionCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdDepartament" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departament" Relationship="Self.FK_City_Departament" FromRole="City" ToRole="Departament" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_City" FromRole="City" ToRole="Client" />
+    <NavigationProperty Name="Mechanic" Relationship="Self.FK_Mechanic_City" FromRole="City" ToRole="Mechanic" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SurnameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdentificationNumberClient" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GenderClient" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneClient" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VehicleClient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfilePictureClient" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Latitude" Type="Geography" />
+    <Property Name="Longitude" Type="Geography" />
+    <Property Name="IdCity" Type="Int32" Nullable="false" />
+    <Property Name="IdTypeDocument" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Client_City" FromRole="Client" ToRole="City" />
+    <NavigationProperty Name="TypeDocument" Relationship="Self.FK_Client_TypeDocument" FromRole="Client" ToRole="TypeDocument" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Service_Client" FromRole="Client" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="IdCountry" />
+    </Key>
+    <Property Name="IdCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCountry" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departament" Relationship="Self.FK_Departament_Country" FromRole="Country" ToRole="Departament" />
+  </EntityType>
+  <EntityType Name="Departament">
+    <Key>
+      <PropertyRef Name="IdDepartament" />
+    </Key>
+    <Property Name="IdDepartament" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameDepartament" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DescriptionDepartament" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdCountry" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_City_Departament" FromRole="Departament" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Departament_Country" FromRole="Departament" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="Mechanic">
+    <Key>
+      <PropertyRef Name="IdMechanic" />
+    </Key>
+    <Property Name="IdMechanic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameMechanic" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SurnameMechanic" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentNumberMechanic" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GenderMechanic" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneMechanic" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailMechanic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProfilePictureMechanic" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="LatitudeMechanic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LongitudeMechanic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdCity" Type="Int32" Nullable="false" />
+    <Property Name="IdTypeDocument" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Mechanic_City" FromRole="Mechanic" ToRole="City" />
+    <NavigationProperty Name="TypeDocument" Relationship="Self.FK_Mechanic_TypeDocument" FromRole="Mechanic" ToRole="TypeDocument" />
+    <NavigationProperty Name="ServiceList" Relationship="Self.FK_ServiceList_Mechanic" FromRole="Mechanic" ToRole="ServiceList" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="IdPayment" />
+    </Key>
+    <Property Name="IdPayment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfirmationCodePayment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionPayment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResponsePayment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdService" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Payment_Service" FromRole="Payment" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IdService" />
+    </Key>
+    <Property Name="IdService" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDateService" Type="DateTime" Precision="0" />
+    <Property Name="DeletCodeService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MechanicCommentService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ClientCommentService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MechanicCalificationService" Type="Int32" />
+    <Property Name="ClientCalificationService" Type="Int32" />
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="IdServiceList" Type="Int32" Nullable="false" />
+    <Property Name="IdStatusService" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Service_Client" FromRole="Service" ToRole="Client" />
+    <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_Service" FromRole="Service" ToRole="Payment" />
+    <NavigationProperty Name="ServiceList" Relationship="Self.FK_Service_ServiceList" FromRole="Service" ToRole="ServiceList" />
+    <NavigationProperty Name="StatusService" Relationship="Self.FK_Service_StatusService" FromRole="Service" ToRole="StatusService" />
+  </EntityType>
+  <EntityType Name="ServiceList">
+    <Key>
+      <PropertyRef Name="IdServiceList" />
+    </Key>
+    <Property Name="IdServiceList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeServiceList" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StatusServiceList" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdMechanic" Type="Int32" Nullable="false" />
+    <Property Name="IdTheService" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Mechanic" Relationship="Self.FK_ServiceList_Mechanic" FromRole="ServiceList" ToRole="Mechanic" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Service_ServiceList" FromRole="ServiceList" ToRole="Service" />
+    <NavigationProperty Name="TheService" Relationship="Self.FK_ServiceList_TheService" FromRole="ServiceList" ToRole="TheService" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="IdServiceType" />
+    </Key>
+    <Property Name="IdServiceType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameServiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionServiceType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TheService" Relationship="Self.FK_TheService_ServiceType" FromRole="ServiceType" ToRole="TheService" />
+  </EntityType>
+  <EntityType Name="StatusService">
+    <Key>
+      <PropertyRef Name="IdStatusService" />
+    </Key>
+    <Property Name="IdStatusService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameStatusService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionStatusService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Service_StatusService" FromRole="StatusService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="TheService">
+    <Key>
+      <PropertyRef Name="IdTheService" />
+    </Key>
+    <Property Name="IdTheService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameTheService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionTheService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PreviewImageTheService" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IdServiceType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ServiceList" Relationship="Self.FK_ServiceList_TheService" FromRole="TheService" ToRole="ServiceList" />
+    <NavigationProperty Name="ServiceType" Relationship="Self.FK_TheService_ServiceType" FromRole="TheService" ToRole="ServiceType" />
+  </EntityType>
+  <EntityType Name="TypeDocument">
+    <Key>
+      <PropertyRef Name="IdTypeDocument" />
+    </Key>
+    <Property Name="IdTypeDocument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameDocument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescriptionDocument" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_TypeDocument" FromRole="TypeDocument" ToRole="Client" />
+    <NavigationProperty Name="Mechanic" Relationship="Self.FK_Mechanic_TypeDocument" FromRole="TypeDocument" ToRole="Mechanic" />
+  </EntityType>
+  <Association Name="FK_City_Departament">
+    <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departament">
+        <PropertyRef Name="IdDepartament" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="IdDepartament" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mechanic_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Mechanic">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_TypeDocument">
+    <End Role="TypeDocument" Type="Self.TypeDocument" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeDocument">
+        <PropertyRef Name="IdTypeDocument" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IdTypeDocument" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departament_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Departament" Type="Self.Departament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="IdCountry" />
+      </Principal>
+      <Dependent Role="Departament">
+        <PropertyRef Name="IdCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mechanic_TypeDocument">
+    <End Role="TypeDocument" Type="Self.TypeDocument" Multiplicity="1" />
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeDocument">
+        <PropertyRef Name="IdTypeDocument" />
+      </Principal>
+      <Dependent Role="Mechanic">
+        <PropertyRef Name="IdTypeDocument" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceList_Mechanic">
+    <End Role="Mechanic" Type="Self.Mechanic" Multiplicity="1" />
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mechanic">
+        <PropertyRef Name="IdMechanic" />
+      </Principal>
+      <Dependent Role="ServiceList">
+        <PropertyRef Name="IdMechanic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IdService" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_ServiceList">
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceList">
+        <PropertyRef Name="IdServiceList" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdServiceList" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_StatusService">
+    <End Role="StatusService" Type="Self.StatusService" Multiplicity="1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusService">
+        <PropertyRef Name="IdStatusService" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IdStatusService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceList_TheService">
+    <End Role="TheService" Type="Self.TheService" Multiplicity="1" />
+    <End Role="ServiceList" Type="Self.ServiceList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TheService">
+        <PropertyRef Name="IdTheService" />
+      </Principal>
+      <Dependent Role="ServiceList">
+        <PropertyRef Name="IdTheService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TheService_ServiceType">
+    <End Role="ServiceType" Type="Self.ServiceType" Multiplicity="1" />
+    <End Role="TheService" Type="Self.TheService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceType">
+        <PropertyRef Name="IdServiceType" />
+      </Principal>
+      <Dependent Role="TheService">
+        <PropertyRef Name="IdServiceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoDelCursoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="Departament" EntityType="Self.Departament" />
+    <EntitySet Name="Mechanic" EntityType="Self.Mechanic" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="ServiceList" EntityType="Self.ServiceList" />
+    <EntitySet Name="ServiceType" EntityType="Self.ServiceType" />
+    <EntitySet Name="StatusService" EntityType="Self.StatusService" />
+    <EntitySet Name="TheService" EntityType="Self.TheService" />
+    <EntitySet Name="TypeDocument" EntityType="Self.TypeDocument" />
+    <AssociationSet Name="FK_City_Departament" Association="Self.FK_City_Departament">
+      <End Role="Departament" EntitySet="Departament" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_City" Association="Self.FK_Client_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mechanic_City" Association="Self.FK_Mechanic_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Mechanic" EntitySet="Mechanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_TypeDocument" Association="Self.FK_Client_TypeDocument">
+      <End Role="TypeDocument" EntitySet="TypeDocument" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_Client" Association="Self.FK_Service_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departament_Country" Association="Self.FK_Departament_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Departament" EntitySet="Departament" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mechanic_TypeDocument" Association="Self.FK_Mechanic_TypeDocument">
+      <End Role="TypeDocument" EntitySet="TypeDocument" />
+      <End Role="Mechanic" EntitySet="Mechanic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceList_Mechanic" Association="Self.FK_ServiceList_Mechanic">
+      <End Role="Mechanic" EntitySet="Mechanic" />
+      <End Role="ServiceList" EntitySet="ServiceList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Service" Association="Self.FK_Payment_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_ServiceList" Association="Self.FK_Service_ServiceList">
+      <End Role="ServiceList" EntitySet="ServiceList" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_StatusService" Association="Self.FK_Service_StatusService">
+      <End Role="StatusService" EntitySet="StatusService" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceList_TheService" Association="Self.FK_ServiceList_TheService">
+      <End Role="TheService" EntitySet="TheService" />
+      <End Role="ServiceList" EntitySet="ServiceList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TheService_ServiceType" Association="Self.FK_TheService_ServiceType">
+      <End Role="ServiceType" EntitySet="ServiceType" />
+      <End Role="TheService" EntitySet="TheService" />
+    </AssociationSet>
+    <FunctionImport Name="deleteCity">
+      <Parameter Name="idCity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteClient">
+      <Parameter Name="idClient" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteCountry">
+      <Parameter Name="idCountry" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteDepartament">
+      <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteMechanic">
+      <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deletePayment">
+      <Parameter Name="idPayment" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteServiceList">
+      <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteServiceType">
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteStatusServiceId">
+      <Parameter Name="idStatusService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteTypeDocument">
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertCity">
+      <Parameter Name="nameCity" Mode="In" Type="String" />
+      <Parameter Name="descriptionCity" Mode="In" Type="String" />
+      <Parameter Name="fkIdDepartament" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertClient">
+      <Parameter Name="nameClient" Mode="In" Type="String" />
+      <Parameter Name="surnameClient" Mode="In" Type="String" />
+      <Parameter Name="identClient" Mode="In" Type="String" />
+      <Parameter Name="genderClient" Mode="In" Type="String" />
+      <Parameter Name="phoneClient" Mode="In" Type="String" />
+      <Parameter Name="vehicleClient" Mode="In" Type="String" />
+      <Parameter Name="profilePictureClient" Mode="In" Type="Binary" />
+      <Parameter Name="latitude" Mode="In" Type="Geography" />
+      <Parameter Name="longitude" Mode="In" Type="Geography" />
+      <Parameter Name="idcity" Mode="In" Type="Int32" />
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertCountry">
+      <Parameter Name="nameCountry" Mode="In" Type="String" />
+      <Parameter Name="descriptionCountry" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertDepartament">
+      <Parameter Name="nameDepartament" Mode="In" Type="String" />
+      <Parameter Name="descriptionDepartament" Mode="In" Type="String" />
+      <Parameter Name="fkIdCountry" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertPayment">
+      <Parameter Name="ConfirmatiomCodePayment" Mode="In" Type="String" />
+      <Parameter Name="descriptionPayment" Mode="In" Type="String" />
+      <Parameter Name="ResponsePayment" Mode="In" Type="String" />
+      <Parameter Name="fkIdService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertServiceList">
+      <Parameter Name="codeServiceList" Mode="In" Type="String" />
+      <Parameter Name="StatusServiceList" Mode="In" Type="String" />
+      <Parameter Name="fkIdMechanic" Mode="In" Type="Int32" />
+      <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertServiceType">
+      <Parameter Name="nameServiceType" Mode="In" Type="String" />
+      <Parameter Name="descriptionServiceType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertTheService">
+      <Parameter Name="nameTheService" Mode="In" Type="String" />
+      <Parameter Name="descriptionTheService" Mode="In" Type="String" />
+      <Parameter Name="previewImageTheService" Mode="In" Type="Binary" />
+      <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertTypeDocument">
+      <Parameter Name="nameTypeDocument" Mode="In" Type="String" />
+      <Parameter Name="descriptionTypeDocument" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="selectCity" ReturnType="Collection(ProyectoDelCursoModel.selectCity_Result)" />
+    <FunctionImport Name="selectClient" ReturnType="Collection(ProyectoDelCursoModel.selectClient_Result)" />
+    <FunctionImport Name="selectCountry" ReturnType="Collection(ProyectoDelCursoModel.selectCountry_Result)">
+      <Parameter Name="idCountry" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectDepartament" />
+    <FunctionImport Name="selectDepartamentId" ReturnType="Collection(ProyectoDelCursoModel.selectDepartamentId_Result)">
+      <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectMechanic" ReturnType="Collection(ProyectoDelCursoModel.selectMechanic_Result)" />
+    <FunctionImport Name="selectMechanicId" ReturnType="Collection(ProyectoDelCursoModel.selectMechanicId_Result)">
+      <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectPayment" ReturnType="Collection(ProyectoDelCursoModel.selectPayment_Result)" />
+    <FunctionImport Name="selectPaymentId" ReturnType="Collection(ProyectoDelCursoModel.selectPaymentId_Result)">
+      <Parameter Name="idPayment" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectService" ReturnType="Collection(ProyectoDelCursoModel.selectService_Result)" />
+    <FunctionImport Name="selectServiceList" ReturnType="Collection(ProyectoDelCursoModel.selectServiceList_Result)" />
+    <FunctionImport Name="selectServiceListId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceListId_Result)">
+      <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectServiceType" ReturnType="Collection(ProyectoDelCursoModel.selectServiceType_Result)">
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectServiceTypeId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceTypeId_Result)">
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectStatusService" ReturnType="Collection(ProyectoDelCursoModel.selectStatusService_Result)" />
+    <FunctionImport Name="selectTheService" ReturnType="Collection(ProyectoDelCursoModel.selectTheService_Result)">
+      <Parameter Name="idTheService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectTheServiceId" ReturnType="Collection(ProyectoDelCursoModel.selectTheServiceId_Result)">
+      <Parameter Name="idTheService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="selectTypeDocument" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocument_Result)" />
+    <FunctionImport Name="selectTypeDocumentId" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocumentId_Result)">
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateCity">
+      <Parameter Name="idCity" Mode="In" Type="Int32" />
+      <Parameter Name="nameCity" Mode="In" Type="String" />
+      <Parameter Name="descriptionCity" Mode="In" Type="String" />
+      <Parameter Name="fkIdDepartament" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateClient">
+      <Parameter Name="idClient" Mode="In" Type="Int32" />
+      <Parameter Name="nameClient" Mode="In" Type="String" />
+      <Parameter Name="surnameClient" Mode="In" Type="String" />
+      <Parameter Name="identClient" Mode="In" Type="String" />
+      <Parameter Name="genderClient" Mode="In" Type="String" />
+      <Parameter Name="phoneClient" Mode="In" Type="String" />
+      <Parameter Name="vehicleClient" Mode="In" Type="String" />
+      <Parameter Name="profilePictureClient" Mode="In" Type="Binary" />
+      <Parameter Name="latitude" Mode="In" Type="Geography" />
+      <Parameter Name="longitude" Mode="In" Type="Geography" />
+      <Parameter Name="idcity" Mode="In" Type="Int32" />
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateCountry">
+      <Parameter Name="idCountry" Mode="In" Type="Int32" />
+      <Parameter Name="nameCountry" Mode="In" Type="String" />
+      <Parameter Name="descriptionCountry" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="updateDepartament">
+      <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+      <Parameter Name="nameDepartament" Mode="In" Type="String" />
+      <Parameter Name="descriptionDepartament" Mode="In" Type="String" />
+      <Parameter Name="fkIdCountry" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateMechanic">
+      <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+      <Parameter Name="nameMechanic" Mode="In" Type="String" />
+      <Parameter Name="surnameMechanic" Mode="In" Type="String" />
+      <Parameter Name="identMechanic" Mode="In" Type="String" />
+      <Parameter Name="genderMechanic" Mode="In" Type="String" />
+      <Parameter Name="phoneMechanic" Mode="In" Type="String" />
+      <Parameter Name="profilePictureMechanic" Mode="In" Type="Binary" />
+      <Parameter Name="latitude" Mode="In" Type="String" />
+      <Parameter Name="longitude" Mode="In" Type="String" />
+      <Parameter Name="idcity" Mode="In" Type="Int32" />
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updatePayment">
+      <Parameter Name="idPayment" Mode="In" Type="Int32" />
+      <Parameter Name="ConfirmatiomCodePayment" Mode="In" Type="String" />
+      <Parameter Name="descriptionPayment" Mode="In" Type="String" />
+      <Parameter Name="ResponsePayment" Mode="In" Type="String" />
+      <Parameter Name="fkIdService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateServiceList">
+      <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+      <Parameter Name="codeServiceList" Mode="In" Type="String" />
+      <Parameter Name="StatusServiceList" Mode="In" Type="String" />
+      <Parameter Name="fkIdMechanic" Mode="In" Type="Int32" />
+      <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateServiceType">
+      <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+      <Parameter Name="nameServiceType" Mode="In" Type="String" />
+      <Parameter Name="descriptionServiceType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="updateStatusService">
+      <Parameter Name="idStatusService" Mode="In" Type="Int32" />
+      <Parameter Name="nameStatusService" Mode="In" Type="String" />
+      <Parameter Name="descriptionStatusService" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="updateTheService">
+      <Parameter Name="idTheService" Mode="In" Type="Int32" />
+      <Parameter Name="nameTheService" Mode="In" Type="String" />
+      <Parameter Name="descriptionTheService" Mode="In" Type="String" />
+      <Parameter Name="previewImageTheService" Mode="In" Type="Binary" />
+      <Parameter Name="fkIdServiceType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateTypeDocument">
+      <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+      <Parameter Name="nameTypeDocument" Mode="In" Type="String" />
+      <Parameter Name="descriptionTypeDocument" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="selectCity_Result">
+    <Property Type="Int32" Name="IdCity" Nullable="false" />
+    <Property Type="String" Name="NameCity" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DescripcionCity" Nullable="true" />
+    <Property Type="Int32" Name="IdDepartament" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectClient_Result">
+    <Property Type="Int32" Name="IdClient" Nullable="false" />
+    <Property Type="String" Name="NameClient" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SurnameClient" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="IdentificationNumberClient" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="GenderClient" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PhoneClient" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="VehicleClient" Nullable="true" MaxLength="50" />
+    <Property Type="Binary" Name="ProfilePictureClient" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="IdCity" Nullable="false" />
+    <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectCountry_Result">
+    <Property Type="Int32" Name="IdCountry" Nullable="false" />
+    <Property Type="String" Name="NameCountry" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DescriptionCountry" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="selectDepartamentId_Result">
+    <Property Type="Int32" Name="IdDepartament" Nullable="false" />
+    <Property Type="String" Name="NameDepartament" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DescriptionDepartament" Nullable="true" />
+    <Property Type="Int32" Name="IdCountry" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectMechanic_Result">
+    <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+    <Property Type="String" Name="NameMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="SurnameMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DocumentNumberMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="GenderMechanic" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PhoneMechanic" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="EmailMechanic" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="ProfilePictureMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="LatitudeMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="LongitudeMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="IdCity" Nullable="false" />
+    <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectMechanicId_Result">
+    <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+    <Property Type="String" Name="NameMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="SurnameMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DocumentNumberMechanic" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="GenderMechanic" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PhoneMechanic" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="EmailMechanic" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="ProfilePictureMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="LatitudeMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="LongitudeMechanic" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="IdCity" Nullable="false" />
+    <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectPayment_Result">
+    <Property Type="Int32" Name="IdPayment" Nullable="false" />
+    <Property Type="String" Name="ConfirmationCodePayment" Nullable="false" />
+    <Property Type="String" Name="DescriptionPayment" Nullable="false" />
+    <Property Type="String" Name="ResponsePayment" Nullable="true" />
+    <Property Type="Int32" Name="IdService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectPaymentId_Result">
+    <Property Type="Int32" Name="IdPayment" Nullable="false" />
+    <Property Type="String" Name="ConfirmationCodePayment" Nullable="false" />
+    <Property Type="String" Name="DescriptionPayment" Nullable="false" />
+    <Property Type="String" Name="ResponsePayment" Nullable="true" />
+    <Property Type="Int32" Name="IdService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectService_Result">
+    <Property Type="Int32" Name="IdService" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDateService" Nullable="true" />
+    <Property Type="Int32" Name="DeletCodeService" Nullable="false" />
+    <Property Type="String" Name="MechanicCommentService" Nullable="true" />
+    <Property Type="String" Name="ClientCommentService" Nullable="true" />
+    <Property Type="Int32" Name="MechanicCalificationService" Nullable="true" />
+    <Property Type="Int32" Name="ClientCalificationService" Nullable="true" />
+    <Property Type="Int32" Name="IdClient" Nullable="false" />
+    <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+    <Property Type="Int32" Name="IdStatusService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectServiceList_Result">
+    <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+    <Property Type="String" Name="CodeServiceList" Nullable="false" />
+    <Property Type="String" Name="StatusServiceList" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+    <Property Type="Int32" Name="IdTheService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectServiceListId_Result">
+    <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+    <Property Type="String" Name="CodeServiceList" Nullable="false" />
+    <Property Type="String" Name="StatusServiceList" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+    <Property Type="Int32" Name="IdTheService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectServiceType_Result">
+    <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+    <Property Type="String" Name="NameServiceType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionServiceType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="selectServiceTypeId_Result">
+    <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+    <Property Type="String" Name="NameServiceType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionServiceType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="selectStatusService_Result">
+    <Property Type="Int32" Name="IdStatusService" Nullable="false" />
+    <Property Type="String" Name="NameStatusService" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionStatusService" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectTheService_Result">
+    <Property Type="Int32" Name="IdTheService" Nullable="false" />
+    <Property Type="String" Name="NameTheService" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionTheService" Nullable="false" />
+    <Property Type="Binary" Name="PreviewImageTheService" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectTheServiceId_Result">
+    <Property Type="Int32" Name="IdTheService" Nullable="false" />
+    <Property Type="String" Name="NameTheService" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionTheService" Nullable="false" />
+    <Property Type="Binary" Name="PreviewImageTheService" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="selectTypeDocument_Result">
+    <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+    <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionDocument" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="selectTypeDocumentId_Result">
+    <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+    <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DescriptionDocument" Nullable="true" />
+  </ComplexType>
+</Schema>
