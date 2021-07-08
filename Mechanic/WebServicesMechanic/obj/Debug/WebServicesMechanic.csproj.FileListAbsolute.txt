@@ -51,9 +51,14 @@ D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMech
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\roslyn\VBCSCompiler.exe
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\roslyn\VBCSCompiler.exe.config
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\Antlr3.Runtime.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Core.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Lightsail.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.SqlServer.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\Microsoft.Web.Infrastructure.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\Newtonsoft.Json.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\RestSharp.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Net.Http.Formatting.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Web.Helpers.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Web.Http.dll
@@ -65,6 +70,13 @@ D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMech
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Web.WebPages.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Web.WebPages.Razor.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\WebGrease.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Core.pdb
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Core.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Lightsail.pdb
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\AWSSDK.Lightsail.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.SqlServer.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\RestSharp.xml
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\Newtonsoft.Json.xml
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Net.Http.Formatting.xml
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\System.Web.Helpers.xml
@@ -92,8 +104,4 @@ D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMech
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\obj\Debug\WebServicesMechanic.csproj.CopyComplete
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\obj\Debug\WebServicesMechanic.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\obj\Debug\WebServicesMechanic.pdb
-D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.dll
-D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.SqlServer.dll
-D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.xml
-D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\bin\EntityFramework.SqlServer.xml
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\obj\Debug\WebServicesMechanic.csproj.AssemblyReference.cache

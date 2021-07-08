@@ -16,13 +16,13 @@ namespace WebServicesMechanic.Controllers
     {
         private ProyectoDelCursoEntities4 db = new ProyectoDelCursoEntities4();
 
-        // GET: api/Clients
+        // GET: api/ClientsApi
         public IQueryable<Client> GetClient()
         {
             return db.Client;
         }
 
-        // GET: api/Clients/5
+        // GET: api/ClientsApi/5
         [ResponseType(typeof(Client))]
         public IHttpActionResult GetClient(int id)
         {
@@ -35,7 +35,7 @@ namespace WebServicesMechanic.Controllers
             return Ok(client);
         }
 
-        // PUT: api/Clients/5
+        // PUT: api/ClientsApi/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)
         {
@@ -70,7 +70,7 @@ namespace WebServicesMechanic.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Clients
+        // POST: api/ClientsApi
         [ResponseType(typeof(Client))]
         public IHttpActionResult PostClient(Client client)
         {
@@ -85,7 +85,7 @@ namespace WebServicesMechanic.Controllers
             return CreatedAtRoute("DefaultApi", new { id = client.IdClient }, client);
         }
 
-        // DELETE: api/Clients/5
+        // DELETE: api/ClientsApi/5
         [ResponseType(typeof(Client))]
         public IHttpActionResult DeleteClient(int id)
         {

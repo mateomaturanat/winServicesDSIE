@@ -7,17 +7,37 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Mechanic.Models;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace Mechanic.Controllers
 {
     public class CountriesController : Controller
     {
-        private ProyectoDelCursoEntities db = new ProyectoDelCursoEntities();
+        private const string URL = "https://mechanicdsiewebservices.azurewebsites.net/api";
 
         // GET: Countries
+        public Country DetailsCountry(int? id)
+        {
+            var cliente = new RestClient(URL + "CountriesApi/" + id);
+            var peticion = new RestRequest(RestSharp.Method.GET);
+            var respuesta = cliente.Execute(peticion);
+
+            var datos = respuesta.Content;//
+            Country country = JsonConvert.DeserializeObject<Country>(datos);
+
+            return country;
+        }
         public ActionResult Index()
         {
-            return View(db.Country.ToList());
+            var cliente = new RestClient(URL + "CountriesApi");//
+            var peticion = new RestRequest(RestSharp.Method.GET);//
+            var respuesta = cliente.Execute(peticion);//
+
+            var datos = respuesta.Content;//
+            var datosJson = JsonConvert.DeserializeObject<List<Country>>(datos);//
+
+            return View(datosJson);
         }
 
         // GET: Countries/Details/5
@@ -27,7 +47,7 @@ namespace Mechanic.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Country.Find(id);
+            var country = this.DetailsCountry(id);
             if (country == null)
             {
                 return HttpNotFound();
@@ -50,8 +70,12 @@ namespace Mechanic.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Country.Add(country);
-                db.SaveChanges();
+                var cliente = new RestClient(URL + "CountriesApi");
+                var peticion = new RestRequest(RestSharp.Method.POST);
+                peticion.AddHeader("Content-Type", "application/json");
+                peticion.AddParameter("", JsonConvert.SerializeObject(country), ParameterType.RequestBody);
+                var respuesta = cliente.Execute(peticion);
+
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +89,7 @@ namespace Mechanic.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Country.Find(id);
+            var country = this.DetailsCountry(id);
             if (country == null)
             {
                 return HttpNotFound();
@@ -82,8 +106,12 @@ namespace Mechanic.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(country).State = EntityState.Modified;
-                db.SaveChanges();
+                var cliente = new RestClient(URL + "UsuarioApi" + country.IdCountry);
+                var peticion = new RestRequest(RestSharp.Method.PUT);
+                peticion.AddHeader("Content-Type", "application/json");
+                peticion.AddParameter("", JsonConvert.SerializeObject(country), ParameterType.RequestBody);
+                var respuesta = cliente.Execute(peticion);//
+
                 return RedirectToAction("Index");
             }
             return View(country);
@@ -96,7 +124,7 @@ namespace Mechanic.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Country country = db.Country.Find(id);
+            var country = this.DetailsCountry(id);
             if (country == null)
             {
                 return HttpNotFound();
@@ -109,19 +137,11 @@ namespace Mechanic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Country country = db.Country.Find(id);
-            db.Country.Remove(country);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            var cliente = new RestClient(URL + "CountriesApi" + id);
+            var peticion = new RestRequest(RestSharp.Method.PUT);
+            var respuesta = cliente.Execute(peticion);
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return RedirectToAction("Index");
         }
     }
 }

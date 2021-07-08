@@ -19,6 +19,7 @@
     <WebStackScaffolding_DbContextTypeFullName>WebServicesMechanic.Models.ProyectoDelCursoEntities4</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <NameOfLastUsedPublishProfile>D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\WebServicesMechanic\Properties\PublishProfiles\mechanicdsiewebservices - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

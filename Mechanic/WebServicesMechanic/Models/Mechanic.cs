@@ -32,6 +32,7 @@ namespace WebServicesMechanic.Models
         public string LongitudeMechanic { get; set; }
         public int IdCity { get; set; }
         public int IdTypeDocument { get; set; }
+        public string PasswordMechanic { get; set; }
     
         public virtual City City { get; set; }
         public virtual TypeDocument TypeDocument { get; set; }

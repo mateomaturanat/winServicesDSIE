@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoDelCursoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoDelCursoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="IdCity" />
@@ -558,8 +558,7 @@
             <End Role="TheService" EntitySet="TheService" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoDelCursoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -940,34 +939,34 @@
             <End Role="TheService" EntitySet="TheService" />
           </AssociationSet>
           <FunctionImport Name="deleteCity">
-            <Parameter Name="idCity" Mode="In" Type="Int32" />
+          <Parameter Name="idCity" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteClient">
-            <Parameter Name="idClient" Mode="In" Type="Int32" />
+          <Parameter Name="idClient" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteCountry">
-            <Parameter Name="idCountry" Mode="In" Type="Int32" />
+          <Parameter Name="idCountry" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteDepartament">
-            <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+          <Parameter Name="idDepartament" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteMechanic">
-            <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+          <Parameter Name="idMechanic" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deletePayment">
-            <Parameter Name="idPayment" Mode="In" Type="Int32" />
+          <Parameter Name="idPayment" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteServiceList">
-            <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+          <Parameter Name="idServiceList" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteServiceType">
-            <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteStatusServiceId">
-            <Parameter Name="idStatusService" Mode="In" Type="Int32" />
+          <Parameter Name="idStatusService" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteTypeDocument">
-            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+          <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insertCity">
             <Parameter Name="nameCity" Mode="In" Type="String" />
@@ -1025,41 +1024,41 @@
           <FunctionImport Name="selectCity" ReturnType="Collection(ProyectoDelCursoModel.selectCity_Result)" />
           <FunctionImport Name="selectClient" ReturnType="Collection(ProyectoDelCursoModel.selectClient_Result)" />
           <FunctionImport Name="selectCountry" ReturnType="Collection(ProyectoDelCursoModel.selectCountry_Result)">
-            <Parameter Name="idCountry" Mode="In" Type="Int32" />
+          <Parameter Name="idCountry" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectDepartament" />
           <FunctionImport Name="selectDepartamentId" ReturnType="Collection(ProyectoDelCursoModel.selectDepartamentId_Result)">
-            <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+          <Parameter Name="idDepartament" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectMechanic" ReturnType="Collection(ProyectoDelCursoModel.selectMechanic_Result)" />
           <FunctionImport Name="selectMechanicId" ReturnType="Collection(ProyectoDelCursoModel.selectMechanicId_Result)">
-            <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+          <Parameter Name="idMechanic" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectPayment" ReturnType="Collection(ProyectoDelCursoModel.selectPayment_Result)" />
           <FunctionImport Name="selectPaymentId" ReturnType="Collection(ProyectoDelCursoModel.selectPaymentId_Result)">
-            <Parameter Name="idPayment" Mode="In" Type="Int32" />
+          <Parameter Name="idPayment" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectService" ReturnType="Collection(ProyectoDelCursoModel.selectService_Result)" />
           <FunctionImport Name="selectServiceList" ReturnType="Collection(ProyectoDelCursoModel.selectServiceList_Result)" />
           <FunctionImport Name="selectServiceListId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceListId_Result)">
-            <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+          <Parameter Name="idServiceList" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectServiceType" ReturnType="Collection(ProyectoDelCursoModel.selectServiceType_Result)">
-            <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectServiceTypeId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceTypeId_Result)">
-            <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectStatusService" ReturnType="Collection(ProyectoDelCursoModel.selectStatusService_Result)" />
           <FunctionImport Name="selectTheService" ReturnType="Collection(ProyectoDelCursoModel.selectTheService_Result)">
-            <Parameter Name="idTheService" Mode="In" Type="Int32" />
+          <Parameter Name="idTheService" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectTheServiceId" ReturnType="Collection(ProyectoDelCursoModel.selectTheServiceId_Result)">
-            <Parameter Name="idTheService" Mode="In" Type="Int32" />
+          <Parameter Name="idTheService" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="selectTypeDocument" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocument_Result)" />
           <FunctionImport Name="selectTypeDocumentId" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocumentId_Result)">
-            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+          <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="updateCity">
             <Parameter Name="idCity" Mode="In" Type="Int32" />

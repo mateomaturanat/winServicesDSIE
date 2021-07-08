@@ -32,6 +32,8 @@ namespace WebServicesMechanic.Models
         public System.Data.Entity.Spatial.DbGeography Longitude { get; set; }
         public int IdCity { get; set; }
         public int IdTypeDocument { get; set; }
+        public string emailAddressClient { get; set; }
+        public string Password { get; set; }
     
         public virtual City City { get; set; }
         public virtual TypeDocument TypeDocument { get; set; }

@@ -30,6 +30,8 @@ namespace WebServicesMechanic.Models
         public int IdClient { get; set; }
         public int IdServiceList { get; set; }
         public int IdStatusService { get; set; }
+        public string DescriptionService { get; set; }
+        public Nullable<double> Payment1 { get; set; }
     
         public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

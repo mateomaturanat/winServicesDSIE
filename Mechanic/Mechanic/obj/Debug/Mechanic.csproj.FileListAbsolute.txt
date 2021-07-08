@@ -87,4 +87,12 @@ D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\obj\De
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\obj\Debug\Mechanic.csproj.CopyComplete
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\obj\Debug\Mechanic.dll
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\obj\Debug\Mechanic.pdb
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Core.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Lightsail.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\RestSharp.dll
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Core.pdb
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Core.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Lightsail.pdb
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\AWSSDK.Lightsail.xml
+D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\bin\RestSharp.xml
 D:\Desarrollo de sistemas empresariales\winServicesDSIE\Mechanic\Mechanic\obj\Debug\Mechanic.csproj.AssemblyReference.cache

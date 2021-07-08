@@ -12,14 +12,18 @@ namespace WebServicesMechanic.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ProyectoDelCursoEntities4 : DbContext
     {
         public ProyectoDelCursoEntities4()
             : base("name=ProyectoDelCursoEntities4")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -37,5 +41,767 @@ namespace WebServicesMechanic.Models
         public virtual DbSet<StatusService> StatusService { get; set; }
         public virtual DbSet<TheService> TheService { get; set; }
         public virtual DbSet<TypeDocument> TypeDocument { get; set; }
+    
+        public virtual int deleteCity(Nullable<int> idCity)
+        {
+            var idCityParameter = idCity.HasValue ?
+                new ObjectParameter("idCity", idCity) :
+                new ObjectParameter("idCity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteCity", idCityParameter);
+        }
+    
+        public virtual int deleteClient(Nullable<int> idClient)
+        {
+            var idClientParameter = idClient.HasValue ?
+                new ObjectParameter("idClient", idClient) :
+                new ObjectParameter("idClient", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteClient", idClientParameter);
+        }
+    
+        public virtual int deleteCountry(Nullable<int> idCountry)
+        {
+            var idCountryParameter = idCountry.HasValue ?
+                new ObjectParameter("idCountry", idCountry) :
+                new ObjectParameter("idCountry", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteCountry", idCountryParameter);
+        }
+    
+        public virtual int deleteDepartament(Nullable<int> idDepartament)
+        {
+            var idDepartamentParameter = idDepartament.HasValue ?
+                new ObjectParameter("idDepartament", idDepartament) :
+                new ObjectParameter("idDepartament", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteDepartament", idDepartamentParameter);
+        }
+    
+        public virtual int deleteMechanic(Nullable<int> idMechanic)
+        {
+            var idMechanicParameter = idMechanic.HasValue ?
+                new ObjectParameter("idMechanic", idMechanic) :
+                new ObjectParameter("idMechanic", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteMechanic", idMechanicParameter);
+        }
+    
+        public virtual int deletePayment(Nullable<int> idPayment)
+        {
+            var idPaymentParameter = idPayment.HasValue ?
+                new ObjectParameter("idPayment", idPayment) :
+                new ObjectParameter("idPayment", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deletePayment", idPaymentParameter);
+        }
+    
+        public virtual int deleteServiceList(Nullable<int> idServiceList)
+        {
+            var idServiceListParameter = idServiceList.HasValue ?
+                new ObjectParameter("idServiceList", idServiceList) :
+                new ObjectParameter("idServiceList", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteServiceList", idServiceListParameter);
+        }
+    
+        public virtual int deleteServiceType(Nullable<int> idServiceType)
+        {
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteServiceType", idServiceTypeParameter);
+        }
+    
+        public virtual int deleteStatusServiceId(Nullable<int> idStatusService)
+        {
+            var idStatusServiceParameter = idStatusService.HasValue ?
+                new ObjectParameter("idStatusService", idStatusService) :
+                new ObjectParameter("idStatusService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteStatusServiceId", idStatusServiceParameter);
+        }
+    
+        public virtual int deleteTypeDocument(Nullable<int> idTypeDocument)
+        {
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteTypeDocument", idTypeDocumentParameter);
+        }
+    
+        public virtual int insertCity(string nameCity, string descriptionCity, Nullable<int> fkIdDepartament)
+        {
+            var nameCityParameter = nameCity != null ?
+                new ObjectParameter("nameCity", nameCity) :
+                new ObjectParameter("nameCity", typeof(string));
+    
+            var descriptionCityParameter = descriptionCity != null ?
+                new ObjectParameter("descriptionCity", descriptionCity) :
+                new ObjectParameter("descriptionCity", typeof(string));
+    
+            var fkIdDepartamentParameter = fkIdDepartament.HasValue ?
+                new ObjectParameter("fkIdDepartament", fkIdDepartament) :
+                new ObjectParameter("fkIdDepartament", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertCity", nameCityParameter, descriptionCityParameter, fkIdDepartamentParameter);
+        }
+    
+        public virtual int insertClient(string nameClient, string surnameClient, string identClient, string genderClient, string phoneClient, string vehicleClient, byte[] profilePictureClient, System.Data.Entity.Spatial.DbGeography latitude, System.Data.Entity.Spatial.DbGeography longitude, Nullable<int> idcity, Nullable<int> idTypeDocument, string emailAddressClient, string passwordClient)
+        {
+            var nameClientParameter = nameClient != null ?
+                new ObjectParameter("nameClient", nameClient) :
+                new ObjectParameter("nameClient", typeof(string));
+    
+            var surnameClientParameter = surnameClient != null ?
+                new ObjectParameter("surnameClient", surnameClient) :
+                new ObjectParameter("surnameClient", typeof(string));
+    
+            var identClientParameter = identClient != null ?
+                new ObjectParameter("identClient", identClient) :
+                new ObjectParameter("identClient", typeof(string));
+    
+            var genderClientParameter = genderClient != null ?
+                new ObjectParameter("genderClient", genderClient) :
+                new ObjectParameter("genderClient", typeof(string));
+    
+            var phoneClientParameter = phoneClient != null ?
+                new ObjectParameter("phoneClient", phoneClient) :
+                new ObjectParameter("phoneClient", typeof(string));
+    
+            var vehicleClientParameter = vehicleClient != null ?
+                new ObjectParameter("vehicleClient", vehicleClient) :
+                new ObjectParameter("vehicleClient", typeof(string));
+    
+            var profilePictureClientParameter = profilePictureClient != null ?
+                new ObjectParameter("profilePictureClient", profilePictureClient) :
+                new ObjectParameter("profilePictureClient", typeof(byte[]));
+    
+            var latitudeParameter = latitude != null ?
+                new ObjectParameter("latitude", latitude) :
+                new ObjectParameter("latitude", typeof(System.Data.Entity.Spatial.DbGeography));
+    
+            var longitudeParameter = longitude != null ?
+                new ObjectParameter("longitude", longitude) :
+                new ObjectParameter("longitude", typeof(System.Data.Entity.Spatial.DbGeography));
+    
+            var idcityParameter = idcity.HasValue ?
+                new ObjectParameter("idcity", idcity) :
+                new ObjectParameter("idcity", typeof(int));
+    
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            var emailAddressClientParameter = emailAddressClient != null ?
+                new ObjectParameter("emailAddressClient", emailAddressClient) :
+                new ObjectParameter("emailAddressClient", typeof(string));
+    
+            var passwordClientParameter = passwordClient != null ?
+                new ObjectParameter("PasswordClient", passwordClient) :
+                new ObjectParameter("PasswordClient", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertClient", nameClientParameter, surnameClientParameter, identClientParameter, genderClientParameter, phoneClientParameter, vehicleClientParameter, profilePictureClientParameter, latitudeParameter, longitudeParameter, idcityParameter, idTypeDocumentParameter, emailAddressClientParameter, passwordClientParameter);
+        }
+    
+        public virtual int insertCountry(string nameCountry, string descriptionCountry)
+        {
+            var nameCountryParameter = nameCountry != null ?
+                new ObjectParameter("nameCountry", nameCountry) :
+                new ObjectParameter("nameCountry", typeof(string));
+    
+            var descriptionCountryParameter = descriptionCountry != null ?
+                new ObjectParameter("descriptionCountry", descriptionCountry) :
+                new ObjectParameter("descriptionCountry", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertCountry", nameCountryParameter, descriptionCountryParameter);
+        }
+    
+        public virtual int insertDepartament(string nameDepartament, string descriptionDepartament, Nullable<int> fkIdCountry)
+        {
+            var nameDepartamentParameter = nameDepartament != null ?
+                new ObjectParameter("nameDepartament", nameDepartament) :
+                new ObjectParameter("nameDepartament", typeof(string));
+    
+            var descriptionDepartamentParameter = descriptionDepartament != null ?
+                new ObjectParameter("descriptionDepartament", descriptionDepartament) :
+                new ObjectParameter("descriptionDepartament", typeof(string));
+    
+            var fkIdCountryParameter = fkIdCountry.HasValue ?
+                new ObjectParameter("fkIdCountry", fkIdCountry) :
+                new ObjectParameter("fkIdCountry", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertDepartament", nameDepartamentParameter, descriptionDepartamentParameter, fkIdCountryParameter);
+        }
+    
+        public virtual int insertPayment(string confirmatiomCodePayment, string descriptionPayment, string responsePayment, Nullable<int> fkIdService)
+        {
+            var confirmatiomCodePaymentParameter = confirmatiomCodePayment != null ?
+                new ObjectParameter("ConfirmatiomCodePayment", confirmatiomCodePayment) :
+                new ObjectParameter("ConfirmatiomCodePayment", typeof(string));
+    
+            var descriptionPaymentParameter = descriptionPayment != null ?
+                new ObjectParameter("descriptionPayment", descriptionPayment) :
+                new ObjectParameter("descriptionPayment", typeof(string));
+    
+            var responsePaymentParameter = responsePayment != null ?
+                new ObjectParameter("ResponsePayment", responsePayment) :
+                new ObjectParameter("ResponsePayment", typeof(string));
+    
+            var fkIdServiceParameter = fkIdService.HasValue ?
+                new ObjectParameter("fkIdService", fkIdService) :
+                new ObjectParameter("fkIdService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertPayment", confirmatiomCodePaymentParameter, descriptionPaymentParameter, responsePaymentParameter, fkIdServiceParameter);
+        }
+    
+        public virtual int insertServiceList(string codeServiceList, string statusServiceList, Nullable<int> fkIdMechanic, Nullable<int> fkIdTheService)
+        {
+            var codeServiceListParameter = codeServiceList != null ?
+                new ObjectParameter("codeServiceList", codeServiceList) :
+                new ObjectParameter("codeServiceList", typeof(string));
+    
+            var statusServiceListParameter = statusServiceList != null ?
+                new ObjectParameter("StatusServiceList", statusServiceList) :
+                new ObjectParameter("StatusServiceList", typeof(string));
+    
+            var fkIdMechanicParameter = fkIdMechanic.HasValue ?
+                new ObjectParameter("fkIdMechanic", fkIdMechanic) :
+                new ObjectParameter("fkIdMechanic", typeof(int));
+    
+            var fkIdTheServiceParameter = fkIdTheService.HasValue ?
+                new ObjectParameter("fkIdTheService", fkIdTheService) :
+                new ObjectParameter("fkIdTheService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertServiceList", codeServiceListParameter, statusServiceListParameter, fkIdMechanicParameter, fkIdTheServiceParameter);
+        }
+    
+        public virtual int insertServiceType(string nameServiceType, string descriptionServiceType)
+        {
+            var nameServiceTypeParameter = nameServiceType != null ?
+                new ObjectParameter("nameServiceType", nameServiceType) :
+                new ObjectParameter("nameServiceType", typeof(string));
+    
+            var descriptionServiceTypeParameter = descriptionServiceType != null ?
+                new ObjectParameter("descriptionServiceType", descriptionServiceType) :
+                new ObjectParameter("descriptionServiceType", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertServiceType", nameServiceTypeParameter, descriptionServiceTypeParameter);
+        }
+    
+        public virtual int insertTheService(string nameTheService, string descriptionTheService, byte[] previewImageTheService, Nullable<int> fkIdTheService)
+        {
+            var nameTheServiceParameter = nameTheService != null ?
+                new ObjectParameter("nameTheService", nameTheService) :
+                new ObjectParameter("nameTheService", typeof(string));
+    
+            var descriptionTheServiceParameter = descriptionTheService != null ?
+                new ObjectParameter("descriptionTheService", descriptionTheService) :
+                new ObjectParameter("descriptionTheService", typeof(string));
+    
+            var previewImageTheServiceParameter = previewImageTheService != null ?
+                new ObjectParameter("previewImageTheService", previewImageTheService) :
+                new ObjectParameter("previewImageTheService", typeof(byte[]));
+    
+            var fkIdTheServiceParameter = fkIdTheService.HasValue ?
+                new ObjectParameter("fkIdTheService", fkIdTheService) :
+                new ObjectParameter("fkIdTheService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertTheService", nameTheServiceParameter, descriptionTheServiceParameter, previewImageTheServiceParameter, fkIdTheServiceParameter);
+        }
+    
+        public virtual int insertTypeDocument(string nameTypeDocument, string descriptionTypeDocument)
+        {
+            var nameTypeDocumentParameter = nameTypeDocument != null ?
+                new ObjectParameter("nameTypeDocument", nameTypeDocument) :
+                new ObjectParameter("nameTypeDocument", typeof(string));
+    
+            var descriptionTypeDocumentParameter = descriptionTypeDocument != null ?
+                new ObjectParameter("descriptionTypeDocument", descriptionTypeDocument) :
+                new ObjectParameter("descriptionTypeDocument", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertTypeDocument", nameTypeDocumentParameter, descriptionTypeDocumentParameter);
+        }
+    
+        public virtual ObjectResult<selectCity_Result> selectCity()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectCity_Result>("selectCity");
+        }
+    
+        public virtual ObjectResult<selectClient_Result> selectClient()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectClient_Result>("selectClient");
+        }
+    
+        public virtual ObjectResult<selectCountry_Result> selectCountry(Nullable<int> idCountry)
+        {
+            var idCountryParameter = idCountry.HasValue ?
+                new ObjectParameter("idCountry", idCountry) :
+                new ObjectParameter("idCountry", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectCountry_Result>("selectCountry", idCountryParameter);
+        }
+    
+        public virtual int selectDepartament()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("selectDepartament");
+        }
+    
+        public virtual ObjectResult<selectDepartamentId_Result> selectDepartamentId(Nullable<int> idDepartament)
+        {
+            var idDepartamentParameter = idDepartament.HasValue ?
+                new ObjectParameter("idDepartament", idDepartament) :
+                new ObjectParameter("idDepartament", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectDepartamentId_Result>("selectDepartamentId", idDepartamentParameter);
+        }
+    
+        public virtual ObjectResult<selectMechanic_Result> selectMechanic()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectMechanic_Result>("selectMechanic");
+        }
+    
+        public virtual ObjectResult<selectMechanicId_Result> selectMechanicId(Nullable<int> idMechanic)
+        {
+            var idMechanicParameter = idMechanic.HasValue ?
+                new ObjectParameter("idMechanic", idMechanic) :
+                new ObjectParameter("idMechanic", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectMechanicId_Result>("selectMechanicId", idMechanicParameter);
+        }
+    
+        public virtual ObjectResult<selectPayment_Result> selectPayment()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectPayment_Result>("selectPayment");
+        }
+    
+        public virtual ObjectResult<selectPaymentId_Result> selectPaymentId(Nullable<int> idPayment)
+        {
+            var idPaymentParameter = idPayment.HasValue ?
+                new ObjectParameter("idPayment", idPayment) :
+                new ObjectParameter("idPayment", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectPaymentId_Result>("selectPaymentId", idPaymentParameter);
+        }
+    
+        public virtual ObjectResult<selectService_Result> selectService()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectService_Result>("selectService");
+        }
+    
+        public virtual ObjectResult<selectServiceList_Result> selectServiceList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectServiceList_Result>("selectServiceList");
+        }
+    
+        public virtual ObjectResult<selectServiceListId_Result> selectServiceListId(Nullable<int> idServiceList)
+        {
+            var idServiceListParameter = idServiceList.HasValue ?
+                new ObjectParameter("idServiceList", idServiceList) :
+                new ObjectParameter("idServiceList", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectServiceListId_Result>("selectServiceListId", idServiceListParameter);
+        }
+    
+        public virtual ObjectResult<selectServiceType_Result> selectServiceType(Nullable<int> idServiceType)
+        {
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectServiceType_Result>("selectServiceType", idServiceTypeParameter);
+        }
+    
+        public virtual ObjectResult<selectServiceTypeId_Result> selectServiceTypeId(Nullable<int> idServiceType)
+        {
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectServiceTypeId_Result>("selectServiceTypeId", idServiceTypeParameter);
+        }
+    
+        public virtual ObjectResult<selectStatusService_Result> selectStatusService()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectStatusService_Result>("selectStatusService");
+        }
+    
+        public virtual ObjectResult<selectTheService_Result> selectTheService(Nullable<int> idTheService)
+        {
+            var idTheServiceParameter = idTheService.HasValue ?
+                new ObjectParameter("idTheService", idTheService) :
+                new ObjectParameter("idTheService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectTheService_Result>("selectTheService", idTheServiceParameter);
+        }
+    
+        public virtual ObjectResult<selectTheServiceId_Result> selectTheServiceId(Nullable<int> idTheService)
+        {
+            var idTheServiceParameter = idTheService.HasValue ?
+                new ObjectParameter("idTheService", idTheService) :
+                new ObjectParameter("idTheService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectTheServiceId_Result>("selectTheServiceId", idTheServiceParameter);
+        }
+    
+        public virtual ObjectResult<selectTypeDocument_Result> selectTypeDocument()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectTypeDocument_Result>("selectTypeDocument");
+        }
+    
+        public virtual ObjectResult<selectTypeDocumentId_Result> selectTypeDocumentId(Nullable<int> idTypeDocument)
+        {
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectTypeDocumentId_Result>("selectTypeDocumentId", idTypeDocumentParameter);
+        }
+    
+        public virtual int updateCity(Nullable<int> idCity, string nameCity, string descriptionCity, Nullable<int> fkIdDepartament)
+        {
+            var idCityParameter = idCity.HasValue ?
+                new ObjectParameter("idCity", idCity) :
+                new ObjectParameter("idCity", typeof(int));
+    
+            var nameCityParameter = nameCity != null ?
+                new ObjectParameter("nameCity", nameCity) :
+                new ObjectParameter("nameCity", typeof(string));
+    
+            var descriptionCityParameter = descriptionCity != null ?
+                new ObjectParameter("descriptionCity", descriptionCity) :
+                new ObjectParameter("descriptionCity", typeof(string));
+    
+            var fkIdDepartamentParameter = fkIdDepartament.HasValue ?
+                new ObjectParameter("fkIdDepartament", fkIdDepartament) :
+                new ObjectParameter("fkIdDepartament", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateCity", idCityParameter, nameCityParameter, descriptionCityParameter, fkIdDepartamentParameter);
+        }
+    
+        public virtual int updateClient(Nullable<int> idClient, string nameClient, string surnameClient, string identClient, string genderClient, string phoneClient, string vehicleClient, byte[] profilePictureClient, System.Data.Entity.Spatial.DbGeography latitude, System.Data.Entity.Spatial.DbGeography longitude, Nullable<int> idcity, Nullable<int> idTypeDocument)
+        {
+            var idClientParameter = idClient.HasValue ?
+                new ObjectParameter("idClient", idClient) :
+                new ObjectParameter("idClient", typeof(int));
+    
+            var nameClientParameter = nameClient != null ?
+                new ObjectParameter("nameClient", nameClient) :
+                new ObjectParameter("nameClient", typeof(string));
+    
+            var surnameClientParameter = surnameClient != null ?
+                new ObjectParameter("surnameClient", surnameClient) :
+                new ObjectParameter("surnameClient", typeof(string));
+    
+            var identClientParameter = identClient != null ?
+                new ObjectParameter("identClient", identClient) :
+                new ObjectParameter("identClient", typeof(string));
+    
+            var genderClientParameter = genderClient != null ?
+                new ObjectParameter("genderClient", genderClient) :
+                new ObjectParameter("genderClient", typeof(string));
+    
+            var phoneClientParameter = phoneClient != null ?
+                new ObjectParameter("phoneClient", phoneClient) :
+                new ObjectParameter("phoneClient", typeof(string));
+    
+            var vehicleClientParameter = vehicleClient != null ?
+                new ObjectParameter("vehicleClient", vehicleClient) :
+                new ObjectParameter("vehicleClient", typeof(string));
+    
+            var profilePictureClientParameter = profilePictureClient != null ?
+                new ObjectParameter("profilePictureClient", profilePictureClient) :
+                new ObjectParameter("profilePictureClient", typeof(byte[]));
+    
+            var latitudeParameter = latitude != null ?
+                new ObjectParameter("latitude", latitude) :
+                new ObjectParameter("latitude", typeof(System.Data.Entity.Spatial.DbGeography));
+    
+            var longitudeParameter = longitude != null ?
+                new ObjectParameter("longitude", longitude) :
+                new ObjectParameter("longitude", typeof(System.Data.Entity.Spatial.DbGeography));
+    
+            var idcityParameter = idcity.HasValue ?
+                new ObjectParameter("idcity", idcity) :
+                new ObjectParameter("idcity", typeof(int));
+    
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateClient", idClientParameter, nameClientParameter, surnameClientParameter, identClientParameter, genderClientParameter, phoneClientParameter, vehicleClientParameter, profilePictureClientParameter, latitudeParameter, longitudeParameter, idcityParameter, idTypeDocumentParameter);
+        }
+    
+        public virtual int updateCountry(Nullable<int> idCountry, string nameCountry, string descriptionCountry)
+        {
+            var idCountryParameter = idCountry.HasValue ?
+                new ObjectParameter("idCountry", idCountry) :
+                new ObjectParameter("idCountry", typeof(int));
+    
+            var nameCountryParameter = nameCountry != null ?
+                new ObjectParameter("nameCountry", nameCountry) :
+                new ObjectParameter("nameCountry", typeof(string));
+    
+            var descriptionCountryParameter = descriptionCountry != null ?
+                new ObjectParameter("descriptionCountry", descriptionCountry) :
+                new ObjectParameter("descriptionCountry", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateCountry", idCountryParameter, nameCountryParameter, descriptionCountryParameter);
+        }
+    
+        public virtual int updateDepartament(Nullable<int> idDepartament, string nameDepartament, string descriptionDepartament, Nullable<int> fkIdCountry)
+        {
+            var idDepartamentParameter = idDepartament.HasValue ?
+                new ObjectParameter("idDepartament", idDepartament) :
+                new ObjectParameter("idDepartament", typeof(int));
+    
+            var nameDepartamentParameter = nameDepartament != null ?
+                new ObjectParameter("nameDepartament", nameDepartament) :
+                new ObjectParameter("nameDepartament", typeof(string));
+    
+            var descriptionDepartamentParameter = descriptionDepartament != null ?
+                new ObjectParameter("descriptionDepartament", descriptionDepartament) :
+                new ObjectParameter("descriptionDepartament", typeof(string));
+    
+            var fkIdCountryParameter = fkIdCountry.HasValue ?
+                new ObjectParameter("fkIdCountry", fkIdCountry) :
+                new ObjectParameter("fkIdCountry", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateDepartament", idDepartamentParameter, nameDepartamentParameter, descriptionDepartamentParameter, fkIdCountryParameter);
+        }
+    
+        public virtual int updateMechanic(Nullable<int> idMechanic, string nameMechanic, string surnameMechanic, string identMechanic, string genderMechanic, string phoneMechanic, byte[] profilePictureMechanic, string latitude, string longitude, Nullable<int> idcity, Nullable<int> idTypeDocument, string passwordMechanic)
+        {
+            var idMechanicParameter = idMechanic.HasValue ?
+                new ObjectParameter("idMechanic", idMechanic) :
+                new ObjectParameter("idMechanic", typeof(int));
+    
+            var nameMechanicParameter = nameMechanic != null ?
+                new ObjectParameter("nameMechanic", nameMechanic) :
+                new ObjectParameter("nameMechanic", typeof(string));
+    
+            var surnameMechanicParameter = surnameMechanic != null ?
+                new ObjectParameter("surnameMechanic", surnameMechanic) :
+                new ObjectParameter("surnameMechanic", typeof(string));
+    
+            var identMechanicParameter = identMechanic != null ?
+                new ObjectParameter("identMechanic", identMechanic) :
+                new ObjectParameter("identMechanic", typeof(string));
+    
+            var genderMechanicParameter = genderMechanic != null ?
+                new ObjectParameter("genderMechanic", genderMechanic) :
+                new ObjectParameter("genderMechanic", typeof(string));
+    
+            var phoneMechanicParameter = phoneMechanic != null ?
+                new ObjectParameter("phoneMechanic", phoneMechanic) :
+                new ObjectParameter("phoneMechanic", typeof(string));
+    
+            var profilePictureMechanicParameter = profilePictureMechanic != null ?
+                new ObjectParameter("profilePictureMechanic", profilePictureMechanic) :
+                new ObjectParameter("profilePictureMechanic", typeof(byte[]));
+    
+            var latitudeParameter = latitude != null ?
+                new ObjectParameter("latitude", latitude) :
+                new ObjectParameter("latitude", typeof(string));
+    
+            var longitudeParameter = longitude != null ?
+                new ObjectParameter("longitude", longitude) :
+                new ObjectParameter("longitude", typeof(string));
+    
+            var idcityParameter = idcity.HasValue ?
+                new ObjectParameter("idcity", idcity) :
+                new ObjectParameter("idcity", typeof(int));
+    
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            var passwordMechanicParameter = passwordMechanic != null ?
+                new ObjectParameter("passwordMechanic", passwordMechanic) :
+                new ObjectParameter("passwordMechanic", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateMechanic", idMechanicParameter, nameMechanicParameter, surnameMechanicParameter, identMechanicParameter, genderMechanicParameter, phoneMechanicParameter, profilePictureMechanicParameter, latitudeParameter, longitudeParameter, idcityParameter, idTypeDocumentParameter, passwordMechanicParameter);
+        }
+    
+        public virtual int updatePayment(Nullable<int> idPayment, string confirmatiomCodePayment, string descriptionPayment, string responsePayment, Nullable<int> fkIdService)
+        {
+            var idPaymentParameter = idPayment.HasValue ?
+                new ObjectParameter("idPayment", idPayment) :
+                new ObjectParameter("idPayment", typeof(int));
+    
+            var confirmatiomCodePaymentParameter = confirmatiomCodePayment != null ?
+                new ObjectParameter("ConfirmatiomCodePayment", confirmatiomCodePayment) :
+                new ObjectParameter("ConfirmatiomCodePayment", typeof(string));
+    
+            var descriptionPaymentParameter = descriptionPayment != null ?
+                new ObjectParameter("descriptionPayment", descriptionPayment) :
+                new ObjectParameter("descriptionPayment", typeof(string));
+    
+            var responsePaymentParameter = responsePayment != null ?
+                new ObjectParameter("ResponsePayment", responsePayment) :
+                new ObjectParameter("ResponsePayment", typeof(string));
+    
+            var fkIdServiceParameter = fkIdService.HasValue ?
+                new ObjectParameter("fkIdService", fkIdService) :
+                new ObjectParameter("fkIdService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatePayment", idPaymentParameter, confirmatiomCodePaymentParameter, descriptionPaymentParameter, responsePaymentParameter, fkIdServiceParameter);
+        }
+    
+        public virtual int updateServiceList(Nullable<int> idServiceList, string codeServiceList, string statusServiceList, Nullable<int> fkIdMechanic, Nullable<int> fkIdTheService)
+        {
+            var idServiceListParameter = idServiceList.HasValue ?
+                new ObjectParameter("idServiceList", idServiceList) :
+                new ObjectParameter("idServiceList", typeof(int));
+    
+            var codeServiceListParameter = codeServiceList != null ?
+                new ObjectParameter("codeServiceList", codeServiceList) :
+                new ObjectParameter("codeServiceList", typeof(string));
+    
+            var statusServiceListParameter = statusServiceList != null ?
+                new ObjectParameter("StatusServiceList", statusServiceList) :
+                new ObjectParameter("StatusServiceList", typeof(string));
+    
+            var fkIdMechanicParameter = fkIdMechanic.HasValue ?
+                new ObjectParameter("fkIdMechanic", fkIdMechanic) :
+                new ObjectParameter("fkIdMechanic", typeof(int));
+    
+            var fkIdTheServiceParameter = fkIdTheService.HasValue ?
+                new ObjectParameter("fkIdTheService", fkIdTheService) :
+                new ObjectParameter("fkIdTheService", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateServiceList", idServiceListParameter, codeServiceListParameter, statusServiceListParameter, fkIdMechanicParameter, fkIdTheServiceParameter);
+        }
+    
+        public virtual int updateServiceType(Nullable<int> idServiceType, string nameServiceType, string descriptionServiceType)
+        {
+            var idServiceTypeParameter = idServiceType.HasValue ?
+                new ObjectParameter("idServiceType", idServiceType) :
+                new ObjectParameter("idServiceType", typeof(int));
+    
+            var nameServiceTypeParameter = nameServiceType != null ?
+                new ObjectParameter("nameServiceType", nameServiceType) :
+                new ObjectParameter("nameServiceType", typeof(string));
+    
+            var descriptionServiceTypeParameter = descriptionServiceType != null ?
+                new ObjectParameter("descriptionServiceType", descriptionServiceType) :
+                new ObjectParameter("descriptionServiceType", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateServiceType", idServiceTypeParameter, nameServiceTypeParameter, descriptionServiceTypeParameter);
+        }
+    
+        public virtual int updateStatusService(Nullable<int> idStatusService, string nameStatusService, string descriptionStatusService)
+        {
+            var idStatusServiceParameter = idStatusService.HasValue ?
+                new ObjectParameter("idStatusService", idStatusService) :
+                new ObjectParameter("idStatusService", typeof(int));
+    
+            var nameStatusServiceParameter = nameStatusService != null ?
+                new ObjectParameter("nameStatusService", nameStatusService) :
+                new ObjectParameter("nameStatusService", typeof(string));
+    
+            var descriptionStatusServiceParameter = descriptionStatusService != null ?
+                new ObjectParameter("descriptionStatusService", descriptionStatusService) :
+                new ObjectParameter("descriptionStatusService", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateStatusService", idStatusServiceParameter, nameStatusServiceParameter, descriptionStatusServiceParameter);
+        }
+    
+        public virtual int updateTheService(Nullable<int> idTheService, string nameTheService, string descriptionTheService, byte[] previewImageTheService, Nullable<int> fkIdServiceType)
+        {
+            var idTheServiceParameter = idTheService.HasValue ?
+                new ObjectParameter("idTheService", idTheService) :
+                new ObjectParameter("idTheService", typeof(int));
+    
+            var nameTheServiceParameter = nameTheService != null ?
+                new ObjectParameter("nameTheService", nameTheService) :
+                new ObjectParameter("nameTheService", typeof(string));
+    
+            var descriptionTheServiceParameter = descriptionTheService != null ?
+                new ObjectParameter("descriptionTheService", descriptionTheService) :
+                new ObjectParameter("descriptionTheService", typeof(string));
+    
+            var previewImageTheServiceParameter = previewImageTheService != null ?
+                new ObjectParameter("previewImageTheService", previewImageTheService) :
+                new ObjectParameter("previewImageTheService", typeof(byte[]));
+    
+            var fkIdServiceTypeParameter = fkIdServiceType.HasValue ?
+                new ObjectParameter("fkIdServiceType", fkIdServiceType) :
+                new ObjectParameter("fkIdServiceType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateTheService", idTheServiceParameter, nameTheServiceParameter, descriptionTheServiceParameter, previewImageTheServiceParameter, fkIdServiceTypeParameter);
+        }
+    
+        public virtual int updateTypeDocument(Nullable<int> idTypeDocument, string nameTypeDocument, string descriptionTypeDocument)
+        {
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            var nameTypeDocumentParameter = nameTypeDocument != null ?
+                new ObjectParameter("nameTypeDocument", nameTypeDocument) :
+                new ObjectParameter("nameTypeDocument", typeof(string));
+    
+            var descriptionTypeDocumentParameter = descriptionTypeDocument != null ?
+                new ObjectParameter("descriptionTypeDocument", descriptionTypeDocument) :
+                new ObjectParameter("descriptionTypeDocument", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateTypeDocument", idTypeDocumentParameter, nameTypeDocumentParameter, descriptionTypeDocumentParameter);
+        }
+    
+        public virtual int insertMechanic(string nameMechanic, string surnameMechanic, string documentNumber, string genderMechanic, string phoneMechanic, string emailMechanic, byte[] profilePicture, string latitudeMechanic, string longitudeMechanic, Nullable<int> idCity, Nullable<int> idTypeDocument, string passwordMechanic)
+        {
+            var nameMechanicParameter = nameMechanic != null ?
+                new ObjectParameter("NameMechanic", nameMechanic) :
+                new ObjectParameter("NameMechanic", typeof(string));
+    
+            var surnameMechanicParameter = surnameMechanic != null ?
+                new ObjectParameter("SurnameMechanic", surnameMechanic) :
+                new ObjectParameter("SurnameMechanic", typeof(string));
+    
+            var documentNumberParameter = documentNumber != null ?
+                new ObjectParameter("DocumentNumber", documentNumber) :
+                new ObjectParameter("DocumentNumber", typeof(string));
+    
+            var genderMechanicParameter = genderMechanic != null ?
+                new ObjectParameter("GenderMechanic", genderMechanic) :
+                new ObjectParameter("GenderMechanic", typeof(string));
+    
+            var phoneMechanicParameter = phoneMechanic != null ?
+                new ObjectParameter("phoneMechanic", phoneMechanic) :
+                new ObjectParameter("phoneMechanic", typeof(string));
+    
+            var emailMechanicParameter = emailMechanic != null ?
+                new ObjectParameter("EmailMechanic", emailMechanic) :
+                new ObjectParameter("EmailMechanic", typeof(string));
+    
+            var profilePictureParameter = profilePicture != null ?
+                new ObjectParameter("profilePicture", profilePicture) :
+                new ObjectParameter("profilePicture", typeof(byte[]));
+    
+            var latitudeMechanicParameter = latitudeMechanic != null ?
+                new ObjectParameter("LatitudeMechanic", latitudeMechanic) :
+                new ObjectParameter("LatitudeMechanic", typeof(string));
+    
+            var longitudeMechanicParameter = longitudeMechanic != null ?
+                new ObjectParameter("LongitudeMechanic", longitudeMechanic) :
+                new ObjectParameter("LongitudeMechanic", typeof(string));
+    
+            var idCityParameter = idCity.HasValue ?
+                new ObjectParameter("idCity", idCity) :
+                new ObjectParameter("idCity", typeof(int));
+    
+            var idTypeDocumentParameter = idTypeDocument.HasValue ?
+                new ObjectParameter("idTypeDocument", idTypeDocument) :
+                new ObjectParameter("idTypeDocument", typeof(int));
+    
+            var passwordMechanicParameter = passwordMechanic != null ?
+                new ObjectParameter("passwordMechanic", passwordMechanic) :
+                new ObjectParameter("passwordMechanic", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertMechanic", nameMechanicParameter, surnameMechanicParameter, documentNumberParameter, genderMechanicParameter, phoneMechanicParameter, emailMechanicParameter, profilePictureParameter, latitudeMechanicParameter, longitudeMechanicParameter, idCityParameter, idTypeDocumentParameter, passwordMechanicParameter);
+        }
     }
 }

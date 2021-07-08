@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoDelCursoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoDelCursoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="IdCity" />
@@ -30,6 +30,8 @@
           <Property Name="Longitude" Type="geography" />
           <Property Name="IdCity" Type="int" Nullable="false" />
           <Property Name="IdTypeDocument" Type="int" Nullable="false" />
+          <Property Name="emailAddressClient" Type="nvarchar" MaxLength="85" />
+          <Property Name="Password" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -64,6 +66,7 @@
           <Property Name="LongitudeMechanic" Type="text" />
           <Property Name="IdCity" Type="int" Nullable="false" />
           <Property Name="IdTypeDocument" Type="int" Nullable="false" />
+          <Property Name="PasswordMechanic" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -89,6 +92,8 @@
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="IdServiceList" Type="int" Nullable="false" />
           <Property Name="IdStatusService" Type="int" Nullable="false" />
+          <Property Name="DescriptionService" Type="text" />
+          <Property Name="Payment" Type="float" />
         </EntityType>
         <EntityType Name="ServiceList">
           <Key>
@@ -290,6 +295,225 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="deleteCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idClient" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCountry" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteDepartament" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDepartament" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteMechanic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMechanic" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deletePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPayment" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteServiceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceList" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteStatusServiceId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idStatusService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteTypeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameCity" Type="nvarchar" Mode="In" />
+          <Parameter Name="descriptionCity" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdDepartament" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameClient" Type="varchar" Mode="In" />
+          <Parameter Name="surnameClient" Type="varchar" Mode="In" />
+          <Parameter Name="identClient" Type="varchar" Mode="In" />
+          <Parameter Name="genderClient" Type="varchar" Mode="In" />
+          <Parameter Name="phoneClient" Type="varchar" Mode="In" />
+          <Parameter Name="vehicleClient" Type="varchar" Mode="In" />
+          <Parameter Name="profilePictureClient" Type="image" Mode="In" />
+          <Parameter Name="latitude" Type="geography" Mode="In" />
+          <Parameter Name="longitude" Type="geography" Mode="In" />
+          <Parameter Name="idcity" Type="int" Mode="In" />
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+          <Parameter Name="emailAddressClient" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordClient" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameCountry" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionCountry" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="insertDepartament" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameDepartament" Type="nvarchar" Mode="In" />
+          <Parameter Name="descriptionDepartament" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdCountry" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertMechanic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NameMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="SurnameMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentNumber" Type="varchar" Mode="In" />
+          <Parameter Name="GenderMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="phoneMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="EmailMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="profilePicture" Type="image" Mode="In" />
+          <Parameter Name="LatitudeMechanic" Type="text" Mode="In" />
+          <Parameter Name="LongitudeMechanic" Type="text" Mode="In" />
+          <Parameter Name="idCity" Type="int" Mode="In" />
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+          <Parameter Name="passwordMechanic" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertPayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConfirmatiomCodePayment" Type="varchar(max)" Mode="In" />
+          <Parameter Name="descriptionPayment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ResponsePayment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertServiceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codeServiceList" Type="varchar(max)" Mode="In" />
+          <Parameter Name="StatusServiceList" Type="varchar" Mode="In" />
+          <Parameter Name="fkIdMechanic" Type="int" Mode="In" />
+          <Parameter Name="fkIdTheService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameServiceType" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionServiceType" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="insertTheService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameTheService" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionTheService" Type="varchar(max)" Mode="In" />
+          <Parameter Name="previewImageTheService" Type="image" Mode="In" />
+          <Parameter Name="fkIdTheService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertTypeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameTypeDocument" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionTypeDocument" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="selectCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCountry" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectDepartament" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectDepartamentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDepartament" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectMechanic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectMechanicId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMechanic" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectPayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectPaymentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPayment" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectServiceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectServiceListId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceList" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectServiceTypeId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectStatusService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectTheService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTheService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectTheServiceId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTheService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectTypeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectTypeDocumentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCity" Type="int" Mode="In" />
+          <Parameter Name="nameCity" Type="nvarchar" Mode="In" />
+          <Parameter Name="descriptionCity" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdDepartament" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idClient" Type="int" Mode="In" />
+          <Parameter Name="nameClient" Type="varchar" Mode="In" />
+          <Parameter Name="surnameClient" Type="varchar" Mode="In" />
+          <Parameter Name="identClient" Type="varchar" Mode="In" />
+          <Parameter Name="genderClient" Type="varchar" Mode="In" />
+          <Parameter Name="phoneClient" Type="varchar" Mode="In" />
+          <Parameter Name="vehicleClient" Type="varchar" Mode="In" />
+          <Parameter Name="profilePictureClient" Type="image" Mode="In" />
+          <Parameter Name="latitude" Type="geography" Mode="In" />
+          <Parameter Name="longitude" Type="geography" Mode="In" />
+          <Parameter Name="idcity" Type="int" Mode="In" />
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCountry" Type="int" Mode="In" />
+          <Parameter Name="nameCountry" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionCountry" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="updateDepartament" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDepartament" Type="int" Mode="In" />
+          <Parameter Name="nameDepartament" Type="nvarchar" Mode="In" />
+          <Parameter Name="descriptionDepartament" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdCountry" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateMechanic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMechanic" Type="int" Mode="In" />
+          <Parameter Name="nameMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="surnameMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="identMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="genderMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="phoneMechanic" Type="varchar" Mode="In" />
+          <Parameter Name="profilePictureMechanic" Type="image" Mode="In" />
+          <Parameter Name="latitude" Type="text" Mode="In" />
+          <Parameter Name="longitude" Type="text" Mode="In" />
+          <Parameter Name="idcity" Type="int" Mode="In" />
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+          <Parameter Name="passwordMechanic" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="updatePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPayment" Type="int" Mode="In" />
+          <Parameter Name="ConfirmatiomCodePayment" Type="varchar(max)" Mode="In" />
+          <Parameter Name="descriptionPayment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ResponsePayment" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="fkIdService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateServiceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceList" Type="int" Mode="In" />
+          <Parameter Name="codeServiceList" Type="varchar(max)" Mode="In" />
+          <Parameter Name="StatusServiceList" Type="varchar" Mode="In" />
+          <Parameter Name="fkIdMechanic" Type="int" Mode="In" />
+          <Parameter Name="fkIdTheService" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateServiceType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServiceType" Type="int" Mode="In" />
+          <Parameter Name="nameServiceType" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionServiceType" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="updateStatusService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idStatusService" Type="int" Mode="In" />
+          <Parameter Name="nameStatusService" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionStatusService" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="updateTheService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTheService" Type="int" Mode="In" />
+          <Parameter Name="nameTheService" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionTheService" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="previewImageTheService" Type="image" Mode="In" />
+          <Parameter Name="fkIdServiceType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updateTypeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTypeDocument" Type="int" Mode="In" />
+          <Parameter Name="nameTypeDocument" Type="varchar" Mode="In" />
+          <Parameter Name="descriptionTypeDocument" Type="varchar(max)" Mode="In" />
+        </Function>
         <EntityContainer Name="ProyectoDelCursoModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -356,8 +580,7 @@
             <End Role="TheService" EntitySet="TheService" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoDelCursoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -392,6 +615,8 @@
           <NavigationProperty Name="City" Relationship="Self.FK_Client_City" FromRole="Client" ToRole="City" />
           <NavigationProperty Name="TypeDocument" Relationship="Self.FK_Client_TypeDocument" FromRole="Client" ToRole="TypeDocument" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Service_Client" FromRole="Client" ToRole="Service" />
+          <Property Name="emailAddressClient" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -432,6 +657,7 @@
           <NavigationProperty Name="City" Relationship="Self.FK_Mechanic_City" FromRole="Mechanic" ToRole="City" />
           <NavigationProperty Name="TypeDocument" Relationship="Self.FK_Mechanic_TypeDocument" FromRole="Mechanic" ToRole="TypeDocument" />
           <NavigationProperty Name="ServiceList" Relationship="Self.FK_ServiceList_Mechanic" FromRole="Mechanic" ToRole="ServiceList" />
+          <Property Name="PasswordMechanic" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -462,6 +688,8 @@
           <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_Service" FromRole="Service" ToRole="Payment" />
           <NavigationProperty Name="ServiceList" Relationship="Self.FK_Service_ServiceList" FromRole="Service" ToRole="ServiceList" />
           <NavigationProperty Name="StatusService" Relationship="Self.FK_Service_StatusService" FromRole="Service" ToRole="StatusService" />
+          <Property Name="DescriptionService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Payment1" Type="Double" />
         </EntityType>
         <EntityType Name="ServiceList">
           <Key>
@@ -737,7 +965,363 @@
             <End Role="ServiceType" EntitySet="ServiceType" />
             <End Role="TheService" EntitySet="TheService" />
           </AssociationSet>
+          <FunctionImport Name="deleteCity">
+          <Parameter Name="idCity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteClient">
+          <Parameter Name="idClient" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteCountry">
+          <Parameter Name="idCountry" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteDepartament">
+          <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteMechanic">
+          <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deletePayment">
+          <Parameter Name="idPayment" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteServiceList">
+          <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteServiceType">
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteStatusServiceId">
+          <Parameter Name="idStatusService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteTypeDocument">
+          <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertCity">
+            <Parameter Name="nameCity" Mode="In" Type="String" />
+            <Parameter Name="descriptionCity" Mode="In" Type="String" />
+            <Parameter Name="fkIdDepartament" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertClient">
+            <Parameter Name="nameClient" Mode="In" Type="String" />
+            <Parameter Name="surnameClient" Mode="In" Type="String" />
+            <Parameter Name="identClient" Mode="In" Type="String" />
+            <Parameter Name="genderClient" Mode="In" Type="String" />
+            <Parameter Name="phoneClient" Mode="In" Type="String" />
+            <Parameter Name="vehicleClient" Mode="In" Type="String" />
+            <Parameter Name="profilePictureClient" Mode="In" Type="Binary" />
+            <Parameter Name="latitude" Mode="In" Type="Geography" />
+            <Parameter Name="longitude" Mode="In" Type="Geography" />
+            <Parameter Name="idcity" Mode="In" Type="Int32" />
+            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+            <Parameter Name="emailAddressClient" Mode="In" Type="String" />
+            <Parameter Name="PasswordClient" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertCountry">
+            <Parameter Name="nameCountry" Mode="In" Type="String" />
+            <Parameter Name="descriptionCountry" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertDepartament">
+            <Parameter Name="nameDepartament" Mode="In" Type="String" />
+            <Parameter Name="descriptionDepartament" Mode="In" Type="String" />
+            <Parameter Name="fkIdCountry" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertPayment">
+            <Parameter Name="ConfirmatiomCodePayment" Mode="In" Type="String" />
+            <Parameter Name="descriptionPayment" Mode="In" Type="String" />
+            <Parameter Name="ResponsePayment" Mode="In" Type="String" />
+            <Parameter Name="fkIdService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertServiceList">
+            <Parameter Name="codeServiceList" Mode="In" Type="String" />
+            <Parameter Name="StatusServiceList" Mode="In" Type="String" />
+            <Parameter Name="fkIdMechanic" Mode="In" Type="Int32" />
+            <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertServiceType">
+            <Parameter Name="nameServiceType" Mode="In" Type="String" />
+            <Parameter Name="descriptionServiceType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertTheService">
+            <Parameter Name="nameTheService" Mode="In" Type="String" />
+            <Parameter Name="descriptionTheService" Mode="In" Type="String" />
+            <Parameter Name="previewImageTheService" Mode="In" Type="Binary" />
+            <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertTypeDocument">
+            <Parameter Name="nameTypeDocument" Mode="In" Type="String" />
+            <Parameter Name="descriptionTypeDocument" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="selectCity" ReturnType="Collection(ProyectoDelCursoModel.selectCity_Result)" />
+          <FunctionImport Name="selectClient" ReturnType="Collection(ProyectoDelCursoModel.selectClient_Result)" />
+          <FunctionImport Name="selectCountry" ReturnType="Collection(ProyectoDelCursoModel.selectCountry_Result)">
+          <Parameter Name="idCountry" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectDepartament" />
+          <FunctionImport Name="selectDepartamentId" ReturnType="Collection(ProyectoDelCursoModel.selectDepartamentId_Result)">
+          <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectMechanic" ReturnType="Collection(ProyectoDelCursoModel.selectMechanic_Result)" />
+          <FunctionImport Name="selectMechanicId" ReturnType="Collection(ProyectoDelCursoModel.selectMechanicId_Result)">
+          <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectPayment" ReturnType="Collection(ProyectoDelCursoModel.selectPayment_Result)" />
+          <FunctionImport Name="selectPaymentId" ReturnType="Collection(ProyectoDelCursoModel.selectPaymentId_Result)">
+          <Parameter Name="idPayment" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectService" ReturnType="Collection(ProyectoDelCursoModel.selectService_Result)" />
+          <FunctionImport Name="selectServiceList" ReturnType="Collection(ProyectoDelCursoModel.selectServiceList_Result)" />
+          <FunctionImport Name="selectServiceListId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceListId_Result)">
+          <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectServiceType" ReturnType="Collection(ProyectoDelCursoModel.selectServiceType_Result)">
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectServiceTypeId" ReturnType="Collection(ProyectoDelCursoModel.selectServiceTypeId_Result)">
+          <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectStatusService" ReturnType="Collection(ProyectoDelCursoModel.selectStatusService_Result)" />
+          <FunctionImport Name="selectTheService" ReturnType="Collection(ProyectoDelCursoModel.selectTheService_Result)">
+          <Parameter Name="idTheService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectTheServiceId" ReturnType="Collection(ProyectoDelCursoModel.selectTheServiceId_Result)">
+          <Parameter Name="idTheService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectTypeDocument" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocument_Result)" />
+          <FunctionImport Name="selectTypeDocumentId" ReturnType="Collection(ProyectoDelCursoModel.selectTypeDocumentId_Result)">
+          <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateCity">
+            <Parameter Name="idCity" Mode="In" Type="Int32" />
+            <Parameter Name="nameCity" Mode="In" Type="String" />
+            <Parameter Name="descriptionCity" Mode="In" Type="String" />
+            <Parameter Name="fkIdDepartament" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateClient">
+            <Parameter Name="idClient" Mode="In" Type="Int32" />
+            <Parameter Name="nameClient" Mode="In" Type="String" />
+            <Parameter Name="surnameClient" Mode="In" Type="String" />
+            <Parameter Name="identClient" Mode="In" Type="String" />
+            <Parameter Name="genderClient" Mode="In" Type="String" />
+            <Parameter Name="phoneClient" Mode="In" Type="String" />
+            <Parameter Name="vehicleClient" Mode="In" Type="String" />
+            <Parameter Name="profilePictureClient" Mode="In" Type="Binary" />
+            <Parameter Name="latitude" Mode="In" Type="Geography" />
+            <Parameter Name="longitude" Mode="In" Type="Geography" />
+            <Parameter Name="idcity" Mode="In" Type="Int32" />
+            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateCountry">
+            <Parameter Name="idCountry" Mode="In" Type="Int32" />
+            <Parameter Name="nameCountry" Mode="In" Type="String" />
+            <Parameter Name="descriptionCountry" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updateDepartament">
+            <Parameter Name="idDepartament" Mode="In" Type="Int32" />
+            <Parameter Name="nameDepartament" Mode="In" Type="String" />
+            <Parameter Name="descriptionDepartament" Mode="In" Type="String" />
+            <Parameter Name="fkIdCountry" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateMechanic">
+            <Parameter Name="idMechanic" Mode="In" Type="Int32" />
+            <Parameter Name="nameMechanic" Mode="In" Type="String" />
+            <Parameter Name="surnameMechanic" Mode="In" Type="String" />
+            <Parameter Name="identMechanic" Mode="In" Type="String" />
+            <Parameter Name="genderMechanic" Mode="In" Type="String" />
+            <Parameter Name="phoneMechanic" Mode="In" Type="String" />
+            <Parameter Name="profilePictureMechanic" Mode="In" Type="Binary" />
+            <Parameter Name="latitude" Mode="In" Type="String" />
+            <Parameter Name="longitude" Mode="In" Type="String" />
+            <Parameter Name="idcity" Mode="In" Type="Int32" />
+            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+            <Parameter Name="passwordMechanic" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updatePayment">
+            <Parameter Name="idPayment" Mode="In" Type="Int32" />
+            <Parameter Name="ConfirmatiomCodePayment" Mode="In" Type="String" />
+            <Parameter Name="descriptionPayment" Mode="In" Type="String" />
+            <Parameter Name="ResponsePayment" Mode="In" Type="String" />
+            <Parameter Name="fkIdService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateServiceList">
+            <Parameter Name="idServiceList" Mode="In" Type="Int32" />
+            <Parameter Name="codeServiceList" Mode="In" Type="String" />
+            <Parameter Name="StatusServiceList" Mode="In" Type="String" />
+            <Parameter Name="fkIdMechanic" Mode="In" Type="Int32" />
+            <Parameter Name="fkIdTheService" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateServiceType">
+            <Parameter Name="idServiceType" Mode="In" Type="Int32" />
+            <Parameter Name="nameServiceType" Mode="In" Type="String" />
+            <Parameter Name="descriptionServiceType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updateStatusService">
+            <Parameter Name="idStatusService" Mode="In" Type="Int32" />
+            <Parameter Name="nameStatusService" Mode="In" Type="String" />
+            <Parameter Name="descriptionStatusService" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updateTheService">
+            <Parameter Name="idTheService" Mode="In" Type="Int32" />
+            <Parameter Name="nameTheService" Mode="In" Type="String" />
+            <Parameter Name="descriptionTheService" Mode="In" Type="String" />
+            <Parameter Name="previewImageTheService" Mode="In" Type="Binary" />
+            <Parameter Name="fkIdServiceType" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updateTypeDocument">
+            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+            <Parameter Name="nameTypeDocument" Mode="In" Type="String" />
+            <Parameter Name="descriptionTypeDocument" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertMechanic">
+            <Parameter Name="NameMechanic" Mode="In" Type="String" />
+            <Parameter Name="SurnameMechanic" Mode="In" Type="String" />
+            <Parameter Name="DocumentNumber" Mode="In" Type="String" />
+            <Parameter Name="GenderMechanic" Mode="In" Type="String" />
+            <Parameter Name="phoneMechanic" Mode="In" Type="String" />
+            <Parameter Name="EmailMechanic" Mode="In" Type="String" />
+            <Parameter Name="profilePicture" Mode="In" Type="Binary" />
+            <Parameter Name="LatitudeMechanic" Mode="In" Type="String" />
+            <Parameter Name="LongitudeMechanic" Mode="In" Type="String" />
+            <Parameter Name="idCity" Mode="In" Type="Int32" />
+            <Parameter Name="idTypeDocument" Mode="In" Type="Int32" />
+            <Parameter Name="passwordMechanic" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="selectCity_Result">
+          <Property Type="Int32" Name="IdCity" Nullable="false" />
+          <Property Type="String" Name="NameCity" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="DescripcionCity" Nullable="true" />
+          <Property Type="Int32" Name="IdDepartament" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectClient_Result">
+          <Property Type="Int32" Name="IdClient" Nullable="false" />
+          <Property Type="String" Name="NameClient" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SurnameClient" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdentificationNumberClient" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="GenderClient" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PhoneClient" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="VehicleClient" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilePictureClient" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="IdCity" Nullable="false" />
+          <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+          <Property Type="String" Name="emailAddressClient" Nullable="true" MaxLength="85" />
+        </ComplexType>
+        <ComplexType Name="selectCountry_Result">
+          <Property Type="Int32" Name="IdCountry" Nullable="false" />
+          <Property Type="String" Name="NameCountry" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="DescriptionCountry" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selectDepartamentId_Result">
+          <Property Type="Int32" Name="IdDepartament" Nullable="false" />
+          <Property Type="String" Name="NameDepartament" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="DescriptionDepartament" Nullable="true" />
+          <Property Type="Int32" Name="IdCountry" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectMechanic_Result">
+          <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+          <Property Type="String" Name="NameMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="SurnameMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="DocumentNumberMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="GenderMechanic" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PhoneMechanic" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="EmailMechanic" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilePictureMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="LatitudeMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="LongitudeMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="IdCity" Nullable="false" />
+          <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectMechanicId_Result">
+          <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+          <Property Type="String" Name="NameMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="SurnameMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="DocumentNumberMechanic" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="GenderMechanic" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PhoneMechanic" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="EmailMechanic" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilePictureMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="LatitudeMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="LongitudeMechanic" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="IdCity" Nullable="false" />
+          <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectPayment_Result">
+          <Property Type="Int32" Name="IdPayment" Nullable="false" />
+          <Property Type="String" Name="ConfirmationCodePayment" Nullable="false" />
+          <Property Type="String" Name="DescriptionPayment" Nullable="false" />
+          <Property Type="String" Name="ResponsePayment" Nullable="true" />
+          <Property Type="Int32" Name="IdService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectPaymentId_Result">
+          <Property Type="Int32" Name="IdPayment" Nullable="false" />
+          <Property Type="String" Name="ConfirmationCodePayment" Nullable="false" />
+          <Property Type="String" Name="DescriptionPayment" Nullable="false" />
+          <Property Type="String" Name="ResponsePayment" Nullable="true" />
+          <Property Type="Int32" Name="IdService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectService_Result">
+          <Property Type="Int32" Name="IdService" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDateService" Nullable="true" />
+          <Property Type="Int32" Name="DeletCodeService" Nullable="false" />
+          <Property Type="String" Name="MechanicCommentService" Nullable="true" />
+          <Property Type="String" Name="ClientCommentService" Nullable="true" />
+          <Property Type="Int32" Name="MechanicCalificationService" Nullable="true" />
+          <Property Type="Int32" Name="ClientCalificationService" Nullable="true" />
+          <Property Type="Int32" Name="IdClient" Nullable="false" />
+          <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+          <Property Type="Int32" Name="IdStatusService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectServiceList_Result">
+          <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+          <Property Type="String" Name="CodeServiceList" Nullable="false" />
+          <Property Type="String" Name="StatusServiceList" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+          <Property Type="Int32" Name="IdTheService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectServiceListId_Result">
+          <Property Type="Int32" Name="IdServiceList" Nullable="false" />
+          <Property Type="String" Name="CodeServiceList" Nullable="false" />
+          <Property Type="String" Name="StatusServiceList" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdMechanic" Nullable="false" />
+          <Property Type="Int32" Name="IdTheService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectServiceType_Result">
+          <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+          <Property Type="String" Name="NameServiceType" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionServiceType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selectServiceTypeId_Result">
+          <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+          <Property Type="String" Name="NameServiceType" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionServiceType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selectStatusService_Result">
+          <Property Type="Int32" Name="IdStatusService" Nullable="false" />
+          <Property Type="String" Name="NameStatusService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionStatusService" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectTheService_Result">
+          <Property Type="Int32" Name="IdTheService" Nullable="false" />
+          <Property Type="String" Name="NameTheService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionTheService" Nullable="false" />
+          <Property Type="Binary" Name="PreviewImageTheService" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectTheServiceId_Result">
+          <Property Type="Int32" Name="IdTheService" Nullable="false" />
+          <Property Type="String" Name="NameTheService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionTheService" Nullable="false" />
+          <Property Type="Binary" Name="PreviewImageTheService" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="IdServiceType" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="selectTypeDocument_Result">
+          <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionDocument" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selectTypeDocumentId_Result">
+          <Property Type="Int32" Name="IdTypeDocument" Nullable="false" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DescriptionDocument" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -753,10 +1337,30 @@
                 <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ProyectoDelCursoModel.City">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="ProyectoDelCursoModel.Store.insertCity" >
+                  <ScalarProperty Name="IdDepartament" ParameterName="fkIdDepartament" />
+                  <ScalarProperty Name="DescripcionCity" ParameterName="descriptionCity" />
+                  <ScalarProperty Name="NameCity" ParameterName="nameCity" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="ProyectoDelCursoModel.Store.updateCity" >
+                  <ScalarProperty Name="NameCity" ParameterName="nameCity" Version="Current" />
+                  <ScalarProperty Name="IdDepartament" ParameterName="fkIdDepartament" Version="Current" />
+                  <ScalarProperty Name="DescripcionCity" ParameterName="descriptionCity" Version="Current" />
+                  <ScalarProperty Name="IdCity" ParameterName="idCity" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="ProyectoDelCursoModel.Store.deleteCity" >
+                  <ScalarProperty Name="IdCity" ParameterName="idCity" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="ProyectoDelCursoModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="emailAddressClient" ColumnName="emailAddressClient" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="NameClient" ColumnName="NameClient" />
                 <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
@@ -770,6 +1374,42 @@
                 <ScalarProperty Name="IdCity" ColumnName="IdCity" />
                 <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ProyectoDelCursoModel.Client">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="ProyectoDelCursoModel.Store.insertClient" >
+                  <ScalarProperty Name="Password" ParameterName="PasswordClient" />
+                  <ScalarProperty Name="emailAddressClient" ParameterName="emailAddressClient" />
+                  <ScalarProperty Name="IdTypeDocument" ParameterName="idTypeDocument" />
+                  <ScalarProperty Name="IdCity" ParameterName="idcity" />
+                  <ScalarProperty Name="Longitude" ParameterName="longitude" />
+                  <ScalarProperty Name="Latitude" ParameterName="latitude" />
+                  <ScalarProperty Name="ProfilePictureClient" ParameterName="profilePictureClient" />
+                  <ScalarProperty Name="VehicleClient" ParameterName="vehicleClient" />
+                  <ScalarProperty Name="PhoneClient" ParameterName="phoneClient" />
+                  <ScalarProperty Name="GenderClient" ParameterName="genderClient" />
+                  <ScalarProperty Name="IdentificationNumberClient" ParameterName="identClient" />
+                  <ScalarProperty Name="SurnameClient" ParameterName="surnameClient" />
+                  <ScalarProperty Name="NameClient" ParameterName="nameClient" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="ProyectoDelCursoModel.Store.updateClient" >
+                  <ScalarProperty Name="IdTypeDocument" ParameterName="idTypeDocument" Version="Current" />
+                  <ScalarProperty Name="IdCity" ParameterName="idcity" Version="Current" />
+                  <ScalarProperty Name="Longitude" ParameterName="longitude" Version="Current" />
+                  <ScalarProperty Name="Latitude" ParameterName="latitude" Version="Current" />
+                  <ScalarProperty Name="ProfilePictureClient" ParameterName="profilePictureClient" Version="Current" />
+                  <ScalarProperty Name="VehicleClient" ParameterName="vehicleClient" Version="Current" />
+                  <ScalarProperty Name="PhoneClient" ParameterName="phoneClient" Version="Current" />
+                  <ScalarProperty Name="GenderClient" ParameterName="genderClient" Version="Current" />
+                  <ScalarProperty Name="IdentificationNumberClient" ParameterName="identClient" Version="Current" />
+                  <ScalarProperty Name="SurnameClient" ParameterName="surnameClient" Version="Current" />
+                  <ScalarProperty Name="NameClient" ParameterName="nameClient" Version="Current" />
+                  <ScalarProperty Name="IdClient" ParameterName="idClient" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="ProyectoDelCursoModel.Store.deleteClient" >
+                  <ScalarProperty Name="IdClient" ParameterName="idClient" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
@@ -794,6 +1434,7 @@
           <EntitySetMapping Name="Mechanic">
             <EntityTypeMapping TypeName="ProyectoDelCursoModel.Mechanic">
               <MappingFragment StoreEntitySet="Mechanic">
+                <ScalarProperty Name="PasswordMechanic" ColumnName="PasswordMechanic" />
                 <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
                 <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
                 <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
@@ -807,6 +1448,41 @@
                 <ScalarProperty Name="IdCity" ColumnName="IdCity" />
                 <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ProyectoDelCursoModel.Mechanic">
+              <ModificationFunctionMapping>
+                <UpdateFunction FunctionName="ProyectoDelCursoModel.Store.updateMechanic" >
+                  <ScalarProperty Name="PasswordMechanic" ParameterName="passwordMechanic" Version="Current" />
+                  <ScalarProperty Name="IdTypeDocument" ParameterName="idTypeDocument" Version="Current" />
+                  <ScalarProperty Name="IdCity" ParameterName="idcity" Version="Current" />
+                  <ScalarProperty Name="LongitudeMechanic" ParameterName="longitude" Version="Current" />
+                  <ScalarProperty Name="LatitudeMechanic" ParameterName="latitude" Version="Current" />
+                  <ScalarProperty Name="ProfilePictureMechanic" ParameterName="profilePictureMechanic" Version="Current" />
+                  <ScalarProperty Name="PhoneMechanic" ParameterName="phoneMechanic" Version="Current" />
+                  <ScalarProperty Name="GenderMechanic" ParameterName="genderMechanic" Version="Current" />
+                  <ScalarProperty Name="DocumentNumberMechanic" ParameterName="identMechanic" Version="Current" />
+                  <ScalarProperty Name="SurnameMechanic" ParameterName="surnameMechanic" Version="Current" />
+                  <ScalarProperty Name="NameMechanic" ParameterName="nameMechanic" Version="Current" />
+                  <ScalarProperty Name="IdMechanic" ParameterName="idMechanic" Version="Current" />
+                </UpdateFunction>
+                <InsertFunction FunctionName="ProyectoDelCursoModel.Store.insertMechanic">
+                  <ScalarProperty Name="PasswordMechanic" ParameterName="passwordMechanic" />
+                  <ScalarProperty Name="IdTypeDocument" ParameterName="idTypeDocument" />
+                  <ScalarProperty Name="IdCity" ParameterName="idCity" />
+                  <ScalarProperty Name="ProfilePictureMechanic" ParameterName="profilePicture" />
+                  <ScalarProperty Name="PhoneMechanic" ParameterName="phoneMechanic" />
+                  <ScalarProperty Name="DocumentNumberMechanic" ParameterName="DocumentNumber" />
+                  <ScalarProperty Name="LongitudeMechanic" ParameterName="LongitudeMechanic" />
+                  <ScalarProperty Name="LatitudeMechanic" ParameterName="LatitudeMechanic" />
+                  <ScalarProperty Name="EmailMechanic" ParameterName="EmailMechanic" />
+                  <ScalarProperty Name="GenderMechanic" ParameterName="GenderMechanic" />
+                  <ScalarProperty Name="SurnameMechanic" ParameterName="SurnameMechanic" />
+                  <ScalarProperty Name="NameMechanic" ParameterName="NameMechanic" />
+                </InsertFunction>
+                <DeleteFunction FunctionName="ProyectoDelCursoModel.Store.deleteMechanic" >
+                  <ScalarProperty Name="IdMechanic" ParameterName="idMechanic" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Payment">
@@ -823,6 +1499,8 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="ProyectoDelCursoModel.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Payment1" ColumnName="Payment" />
+                <ScalarProperty Name="DescriptionService" ColumnName="DescriptionService" />
                 <ScalarProperty Name="IdService" ColumnName="IdService" />
                 <ScalarProperty Name="CreatedDateService" ColumnName="CreatedDateService" />
                 <ScalarProperty Name="DeletCodeService" ColumnName="DeletCodeService" />
@@ -855,6 +1533,14 @@
                 <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ProyectoDelCursoModel.ServiceType">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="ProyectoDelCursoModel.Store.insertServiceType" >
+                  <ScalarProperty Name="DescriptionServiceType" ParameterName="descriptionServiceType" />
+                  <ScalarProperty Name="NameServiceType" ParameterName="nameServiceType" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StatusService">
             <EntityTypeMapping TypeName="ProyectoDelCursoModel.StatusService">
@@ -884,7 +1570,256 @@
                 <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ProyectoDelCursoModel.TypeDocument">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="ProyectoDelCursoModel.Store.insertTypeDocument" >
+                  <ScalarProperty Name="DescriptionDocument" ParameterName="descriptionTypeDocument" />
+                  <ScalarProperty Name="NameDocument" ParameterName="nameTypeDocument" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="deleteCity" FunctionName="ProyectoDelCursoModel.Store.deleteCity" />
+          <FunctionImportMapping FunctionImportName="deleteClient" FunctionName="ProyectoDelCursoModel.Store.deleteClient" />
+          <FunctionImportMapping FunctionImportName="deleteCountry" FunctionName="ProyectoDelCursoModel.Store.deleteCountry" />
+          <FunctionImportMapping FunctionImportName="deleteDepartament" FunctionName="ProyectoDelCursoModel.Store.deleteDepartament" />
+          <FunctionImportMapping FunctionImportName="deleteMechanic" FunctionName="ProyectoDelCursoModel.Store.deleteMechanic" />
+          <FunctionImportMapping FunctionImportName="deletePayment" FunctionName="ProyectoDelCursoModel.Store.deletePayment" />
+          <FunctionImportMapping FunctionImportName="deleteServiceList" FunctionName="ProyectoDelCursoModel.Store.deleteServiceList" />
+          <FunctionImportMapping FunctionImportName="deleteServiceType" FunctionName="ProyectoDelCursoModel.Store.deleteServiceType" />
+          <FunctionImportMapping FunctionImportName="deleteStatusServiceId" FunctionName="ProyectoDelCursoModel.Store.deleteStatusServiceId" />
+          <FunctionImportMapping FunctionImportName="deleteTypeDocument" FunctionName="ProyectoDelCursoModel.Store.deleteTypeDocument" />
+          <FunctionImportMapping FunctionImportName="insertCity" FunctionName="ProyectoDelCursoModel.Store.insertCity" />
+          <FunctionImportMapping FunctionImportName="insertClient" FunctionName="ProyectoDelCursoModel.Store.insertClient" />
+          <FunctionImportMapping FunctionImportName="insertCountry" FunctionName="ProyectoDelCursoModel.Store.insertCountry" />
+          <FunctionImportMapping FunctionImportName="insertDepartament" FunctionName="ProyectoDelCursoModel.Store.insertDepartament" />
+          <FunctionImportMapping FunctionImportName="insertPayment" FunctionName="ProyectoDelCursoModel.Store.insertPayment" />
+          <FunctionImportMapping FunctionImportName="insertServiceList" FunctionName="ProyectoDelCursoModel.Store.insertServiceList" />
+          <FunctionImportMapping FunctionImportName="insertServiceType" FunctionName="ProyectoDelCursoModel.Store.insertServiceType" />
+          <FunctionImportMapping FunctionImportName="insertTheService" FunctionName="ProyectoDelCursoModel.Store.insertTheService" />
+          <FunctionImportMapping FunctionImportName="insertTypeDocument" FunctionName="ProyectoDelCursoModel.Store.insertTypeDocument" />
+          <FunctionImportMapping FunctionImportName="selectCity" FunctionName="ProyectoDelCursoModel.Store.selectCity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectCity_Result">
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+                <ScalarProperty Name="DescripcionCity" ColumnName="DescripcionCity" />
+                <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectClient" FunctionName="ProyectoDelCursoModel.Store.selectClient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectClient_Result">
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+                <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
+                <ScalarProperty Name="IdentificationNumberClient" ColumnName="IdentificationNumberClient" />
+                <ScalarProperty Name="GenderClient" ColumnName="GenderClient" />
+                <ScalarProperty Name="PhoneClient" ColumnName="PhoneClient" />
+                <ScalarProperty Name="VehicleClient" ColumnName="VehicleClient" />
+                <ScalarProperty Name="ProfilePictureClient" ColumnName="ProfilePictureClient" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+                <ScalarProperty Name="emailAddressClient" ColumnName="emailAddressClient" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectCountry" FunctionName="ProyectoDelCursoModel.Store.selectCountry">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectCountry_Result">
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+                <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+                <ScalarProperty Name="DescriptionCountry" ColumnName="DescriptionCountry" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectDepartament" FunctionName="ProyectoDelCursoModel.Store.selectDepartament" />
+          <FunctionImportMapping FunctionImportName="selectDepartamentId" FunctionName="ProyectoDelCursoModel.Store.selectDepartamentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectDepartamentId_Result">
+                <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+                <ScalarProperty Name="NameDepartament" ColumnName="NameDepartament" />
+                <ScalarProperty Name="DescriptionDepartament" ColumnName="DescriptionDepartament" />
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectMechanic" FunctionName="ProyectoDelCursoModel.Store.selectMechanic">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectMechanic_Result">
+                <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+                <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+                <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+                <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+                <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+                <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+                <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+                <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+                <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+                <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectMechanicId" FunctionName="ProyectoDelCursoModel.Store.selectMechanicId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectMechanicId_Result">
+                <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+                <ScalarProperty Name="NameMechanic" ColumnName="NameMechanic" />
+                <ScalarProperty Name="SurnameMechanic" ColumnName="SurnameMechanic" />
+                <ScalarProperty Name="DocumentNumberMechanic" ColumnName="DocumentNumberMechanic" />
+                <ScalarProperty Name="GenderMechanic" ColumnName="GenderMechanic" />
+                <ScalarProperty Name="PhoneMechanic" ColumnName="PhoneMechanic" />
+                <ScalarProperty Name="EmailMechanic" ColumnName="EmailMechanic" />
+                <ScalarProperty Name="ProfilePictureMechanic" ColumnName="ProfilePictureMechanic" />
+                <ScalarProperty Name="LatitudeMechanic" ColumnName="LatitudeMechanic" />
+                <ScalarProperty Name="LongitudeMechanic" ColumnName="LongitudeMechanic" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectPayment" FunctionName="ProyectoDelCursoModel.Store.selectPayment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectPayment_Result">
+                <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+                <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+                <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+                <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectPaymentId" FunctionName="ProyectoDelCursoModel.Store.selectPaymentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectPaymentId_Result">
+                <ScalarProperty Name="IdPayment" ColumnName="IdPayment" />
+                <ScalarProperty Name="ConfirmationCodePayment" ColumnName="ConfirmationCodePayment" />
+                <ScalarProperty Name="DescriptionPayment" ColumnName="DescriptionPayment" />
+                <ScalarProperty Name="ResponsePayment" ColumnName="ResponsePayment" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectService" FunctionName="ProyectoDelCursoModel.Store.selectService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectService_Result">
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="CreatedDateService" ColumnName="CreatedDateService" />
+                <ScalarProperty Name="DeletCodeService" ColumnName="DeletCodeService" />
+                <ScalarProperty Name="MechanicCommentService" ColumnName="MechanicCommentService" />
+                <ScalarProperty Name="ClientCommentService" ColumnName="ClientCommentService" />
+                <ScalarProperty Name="MechanicCalificationService" ColumnName="MechanicCalificationService" />
+                <ScalarProperty Name="ClientCalificationService" ColumnName="ClientCalificationService" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+                <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectServiceList" FunctionName="ProyectoDelCursoModel.Store.selectServiceList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceList_Result">
+                <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+                <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+                <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+                <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+                <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectServiceListId" FunctionName="ProyectoDelCursoModel.Store.selectServiceListId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceListId_Result">
+                <ScalarProperty Name="IdServiceList" ColumnName="IdServiceList" />
+                <ScalarProperty Name="CodeServiceList" ColumnName="CodeServiceList" />
+                <ScalarProperty Name="StatusServiceList" ColumnName="StatusServiceList" />
+                <ScalarProperty Name="IdMechanic" ColumnName="IdMechanic" />
+                <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectServiceType" FunctionName="ProyectoDelCursoModel.Store.selectServiceType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceType_Result">
+                <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+                <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+                <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectServiceTypeId" FunctionName="ProyectoDelCursoModel.Store.selectServiceTypeId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectServiceTypeId_Result">
+                <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+                <ScalarProperty Name="NameServiceType" ColumnName="NameServiceType" />
+                <ScalarProperty Name="DescriptionServiceType" ColumnName="DescriptionServiceType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectStatusService" FunctionName="ProyectoDelCursoModel.Store.selectStatusService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectStatusService_Result">
+                <ScalarProperty Name="IdStatusService" ColumnName="IdStatusService" />
+                <ScalarProperty Name="NameStatusService" ColumnName="NameStatusService" />
+                <ScalarProperty Name="DescriptionStatusService" ColumnName="DescriptionStatusService" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectTheService" FunctionName="ProyectoDelCursoModel.Store.selectTheService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTheService_Result">
+                <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+                <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+                <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+                <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+                <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectTheServiceId" FunctionName="ProyectoDelCursoModel.Store.selectTheServiceId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTheServiceId_Result">
+                <ScalarProperty Name="IdTheService" ColumnName="IdTheService" />
+                <ScalarProperty Name="NameTheService" ColumnName="NameTheService" />
+                <ScalarProperty Name="DescriptionTheService" ColumnName="DescriptionTheService" />
+                <ScalarProperty Name="PreviewImageTheService" ColumnName="PreviewImageTheService" />
+                <ScalarProperty Name="IdServiceType" ColumnName="IdServiceType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectTypeDocument" FunctionName="ProyectoDelCursoModel.Store.selectTypeDocument">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTypeDocument_Result">
+                <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectTypeDocumentId" FunctionName="ProyectoDelCursoModel.Store.selectTypeDocumentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoDelCursoModel.selectTypeDocumentId_Result">
+                <ScalarProperty Name="IdTypeDocument" ColumnName="IdTypeDocument" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="DescriptionDocument" ColumnName="DescriptionDocument" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateCity" FunctionName="ProyectoDelCursoModel.Store.updateCity" />
+          <FunctionImportMapping FunctionImportName="updateClient" FunctionName="ProyectoDelCursoModel.Store.updateClient" />
+          <FunctionImportMapping FunctionImportName="updateCountry" FunctionName="ProyectoDelCursoModel.Store.updateCountry" />
+          <FunctionImportMapping FunctionImportName="updateDepartament" FunctionName="ProyectoDelCursoModel.Store.updateDepartament" />
+          <FunctionImportMapping FunctionImportName="updateMechanic" FunctionName="ProyectoDelCursoModel.Store.updateMechanic" />
+          <FunctionImportMapping FunctionImportName="updatePayment" FunctionName="ProyectoDelCursoModel.Store.updatePayment" />
+          <FunctionImportMapping FunctionImportName="updateServiceList" FunctionName="ProyectoDelCursoModel.Store.updateServiceList" />
+          <FunctionImportMapping FunctionImportName="updateServiceType" FunctionName="ProyectoDelCursoModel.Store.updateServiceType" />
+          <FunctionImportMapping FunctionImportName="updateStatusService" FunctionName="ProyectoDelCursoModel.Store.updateStatusService" />
+          <FunctionImportMapping FunctionImportName="updateTheService" FunctionName="ProyectoDelCursoModel.Store.updateTheService" />
+          <FunctionImportMapping FunctionImportName="updateTypeDocument" FunctionName="ProyectoDelCursoModel.Store.updateTypeDocument" />
+          <FunctionImportMapping FunctionImportName="insertMechanic" FunctionName="ProyectoDelCursoModel.Store.insertMechanic" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

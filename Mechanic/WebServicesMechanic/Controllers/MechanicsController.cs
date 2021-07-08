@@ -12,7 +12,7 @@ using WebServicesMechanic.Models;
 
 namespace WebServicesMechanic.Controllers
 {
-    public class MechanicsApiController : ApiController
+    public class MechanicsController : ApiController
     {
         private ProyectoDelCursoEntities4 db = new ProyectoDelCursoEntities4();
 
